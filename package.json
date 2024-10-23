@@ -1,0 +1,101 @@
+{
+  "publisher": "ntnyq",
+  "name": "magic-comment",
+  "displayName": "Magic Comment",
+  "preview": true,
+  "type": "commonjs",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@9.12.2",
+  "description": "Add annotations to magic comments",
+  "keywords": [],
+  "license": "MIT",
+  "author": {
+    "name": "ntnyq",
+    "email": "ntnyq13@gmail.com"
+  },
+  "homepage": "https://github.com/ntnyq/magic-comment",
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/ntnyq/magic-comment.git"
+  },
+  "main": "./dist/index.js",
+  "icon": "./res/logo.png",
+  "scripts": {
+    "build": "tsup",
+    "dev": "NODE_ENV=development tsup --watch",
+    "generate:ext": "vscode-ext-gen --output src/meta.ts",
+    "lint": "eslint .",
+    "pack": "vsce package --no-dependencies",
+    "prepare": "husky",
+    "publish": "vsce publish --no-dependencies",
+    "release": "bumpp && pnpm run publish",
+    "typecheck": "tsc --noEmit",
+    "vscode:prepublish": "pnpm run build"
+  },
+  "dependencies": {
+    "reactive-vscode": "^0.2.5"
+  },
+  "devDependencies": {
+    "@ntnyq/eslint-config": "^3.1.0",
+    "@ntnyq/prettier-config": "^1.21.3",
+    "@types/node": "^22.7.7",
+    "@types/vscode": "^1.94.0",
+    "@vscode/vsce": "^3.2.0",
+    "bumpp": "^9.7.1",
+    "eslint": "^9.13.0",
+    "husky": "^9.1.6",
+    "nano-staged": "^0.8.0",
+    "pnpm": "^9.12.2",
+    "prettier": "3.3.3",
+    "tsup": "^8.3.0",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.3",
+    "vscode-ext-gen": "^0.4.4"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [],
+    "configuration": {
+      "title": "Magic Comment",
+      "properties": {
+        "magic-comment.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable extension"
+        },
+        "magic-comment.include": {
+          "type": "array",
+          "default": [],
+          "description": "Include files",
+          "items": {
+            "type": "string"
+          }
+        },
+        "magic-comment.exclude": {
+          "type": "array",
+          "default": [],
+          "description": "Exclude files",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "categories": [
+    "Other"
+  ],
+  "bugs": {
+    "url": "https://github.com/ntnyq/magic-comment/issues/new"
+  },
+  "engines": {
+    "vscode": "^1.94.2"
+  },
+  "prettier": "@ntnyq/prettier-config",
+  "nano-staged": {
+    "*.{js,ts,mjs,cjs,md,json,yml,yaml}": "eslint --fix"
+  }
+}
