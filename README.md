@@ -7,9 +7,31 @@
 [![GitHub top language](https://img.shields.io/github/languages/top/ntnyq/magic-comment)](https://github.com/ntnyq/magic-comment)
 [![GitHub](https://img.shields.io/github/license/ntnyq/magic-comment)](https://github.com/ntnyq/magic-comment/blob/main/LICENSE)
 
-> Add annotations to magic comments.
+> Highlight and add annotations to magic comments.
 
 ## Features
+
+- Highlight magic comments
+- Add annotations to magic comments
+
+## Providers
+
+> Sorted alphabetically
+
+- biome
+- c8
+- compiler
+- cspell
+- eslint
+- istanbul
+- jshint
+- markdownlint
+- prettier
+- remark
+- stylelint
+- typescript
+- unocss
+- v8
 
 ## Commands
 

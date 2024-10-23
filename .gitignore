@@ -3,6 +3,9 @@ node_modules
 *.log*
 *.local
 
-/dist
-
+.eslintcache
+*.tsbuildinfo
 *.vsix
+
+dist
+coverage
