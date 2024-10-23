@@ -47,7 +47,7 @@ export interface ConfigItem<T extends keyof ConfigKeyTypeMap> {
 
 
 /**
- * Configs map registed by `ntnyq.magic-comment`
+ * Configs map registered by `ntnyq.magic-comment`
  */
 export const configs = {
   /**
@@ -95,5 +95,19 @@ export const scopedConfigs = {
     "include": [],
     "exclude": [],
   } satisfies ScopedConfigKeyTypeMap,
+}
+
+export interface NestedConfigs {
+  "magic-comment": {
+    "enable": boolean,
+    "include": string[],
+    "exclude": string[],
+  },
+}
+
+export interface NestedScopedConfigs {
+  "enable": boolean,
+  "include": string[],
+  "exclude": string[],
 }
 
