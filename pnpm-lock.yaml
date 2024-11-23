@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@ntnyq/utils':
+        specifier: ^0.3.1
+        version: 0.3.1
       reactive-vscode:
         specifier: ^0.2.8
         version: 0.2.8(@types/vscode@1.95.0)

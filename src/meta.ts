@@ -12,12 +12,18 @@ export const extensionId = `${publisher}.${name}`
 /**
  * Type union of all commands
  */
-export type CommandKey = never
+export type CommandKey = 
+  | "magic-comment.getLanguageConfig"
 
 /**
  * Commands map registed by `ntnyq.magic-comment`
  */
 export const commands = {
+  /**
+   * getLanguageConfig
+   * @value `magic-comment.getLanguageConfig`
+   */
+  getLanguageConfig: "magic-comment.getLanguageConfig",
 } satisfies Record<string, CommandKey>
 
 /**

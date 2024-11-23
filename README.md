@@ -37,7 +37,9 @@
 
 <!-- commands -->
 
-**No data**
+| Command                           | Title                            |
+| --------------------------------- | -------------------------------- |
+| `magic-comment.getLanguageConfig` | Magic Comment: getLanguageConfig |
 
 <!-- commands -->
 
