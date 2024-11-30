@@ -31,19 +31,41 @@ export const commands = {
  */
 export type ConfigKey = 
   | "magic-comment.enable"
-  | "magic-comment.include"
-  | "magic-comment.exclude"
+  | "magic-comment.excludeFiles"
+  | "magic-comment.includeFiles"
+  | "magic-comment.supportLanguages"
+  | "magic-comment.userComments"
+  | "magic-comments.disabledCategories"
+  | "magic-comments.disabledComments"
 
 export interface ConfigKeyTypeMap {
   "magic-comment.enable": boolean,
-  "magic-comment.include": string[],
-  "magic-comment.exclude": string[],
+  "magic-comment.excludeFiles": string[],
+  "magic-comment.includeFiles": string[],
+  "magic-comment.supportLanguages": string[],
+  "magic-comment.userComments": string[],
+  "magic-comments.disabledCategories": string[],
+  "magic-comments.disabledComments": string[],
 }
 
 export interface ConfigShorthandMap {
   enable: "magic-comment.enable",
-  include: "magic-comment.include",
-  exclude: "magic-comment.exclude",
+  excludeFiles: "magic-comment.excludeFiles",
+  includeFiles: "magic-comment.includeFiles",
+  supportLanguages: "magic-comment.supportLanguages",
+  userComments: "magic-comment.userComments",
+  magicCommentsDisabledCategories: "magic-comments.disabledCategories",
+  magicCommentsDisabledComments: "magic-comments.disabledComments",
+}
+
+export interface ConfigShorthandTypeMap {
+  enable: boolean,
+  excludeFiles: string[],
+  includeFiles: string[],
+  supportLanguages: string[],
+  userComments: string[],
+  magicCommentsDisabledCategories: string[],
+  magicCommentsDisabledComments: string[],
 }
 
 export interface ConfigItem<T extends keyof ConfigKeyTypeMap> {
@@ -67,53 +89,105 @@ export const configs = {
     default: true,
   } as ConfigItem<"magic-comment.enable">,
   /**
-   * Include files
-   * @key `magic-comment.include`
-   * @default `[]`
-   * @type `array`
-   */
-  include: {
-    key: "magic-comment.include",
-    default: [],
-  } as ConfigItem<"magic-comment.include">,
-  /**
    * Exclude files
-   * @key `magic-comment.exclude`
+   * @key `magic-comment.excludeFiles`
    * @default `[]`
    * @type `array`
    */
-  exclude: {
-    key: "magic-comment.exclude",
+  excludeFiles: {
+    key: "magic-comment.excludeFiles",
     default: [],
-  } as ConfigItem<"magic-comment.exclude">,
+  } as ConfigItem<"magic-comment.excludeFiles">,
+  /**
+   * Include files
+   * @key `magic-comment.includeFiles`
+   * @default `[]`
+   * @type `array`
+   */
+  includeFiles: {
+    key: "magic-comment.includeFiles",
+    default: [],
+  } as ConfigItem<"magic-comment.includeFiles">,
+  /**
+   * Enabled in languages
+   * @key `magic-comment.supportLanguages`
+   * @default `[]`
+   * @type `array`
+   */
+  supportLanguages: {
+    key: "magic-comment.supportLanguages",
+    default: [],
+  } as ConfigItem<"magic-comment.supportLanguages">,
+  /**
+   * User defined magic comments
+   * @key `magic-comment.userComments`
+   * @default `[]`
+   * @type `array`
+   */
+  userComments: {
+    key: "magic-comment.userComments",
+    default: [],
+  } as ConfigItem<"magic-comment.userComments">,
+  /**
+   * Disabled by category name
+   * @key `magic-comments.disabledCategories`
+   * @default `[]`
+   * @type `array`
+   */
+  magicCommentsDisabledCategories: {
+    key: "magic-comments.disabledCategories",
+    default: [],
+  } as ConfigItem<"magic-comments.disabledCategories">,
+  /**
+   * Disabled by comments name
+   * @key `magic-comments.disabledComments`
+   * @default `[]`
+   * @type `array`
+   */
+  magicCommentsDisabledComments: {
+    key: "magic-comments.disabledComments",
+    default: [],
+  } as ConfigItem<"magic-comments.disabledComments">,
 }
 
 export interface ScopedConfigKeyTypeMap {
   "enable": boolean,
-  "include": string[],
-  "exclude": string[],
+  "excludeFiles": string[],
+  "includeFiles": string[],
+  "supportLanguages": string[],
+  "userComments": string[],
 }
 
 export const scopedConfigs = {
   scope: "magic-comment",
   defaults: {
     "enable": true,
-    "include": [],
-    "exclude": [],
+    "excludeFiles": [],
+    "includeFiles": [],
+    "supportLanguages": [],
+    "userComments": [],
   } satisfies ScopedConfigKeyTypeMap,
 }
 
 export interface NestedConfigs {
   "magic-comment": {
     "enable": boolean,
-    "include": string[],
-    "exclude": string[],
+    "excludeFiles": string[],
+    "includeFiles": string[],
+    "supportLanguages": string[],
+    "userComments": string[],
+  },
+  "magic-comments": {
+    "disabledCategories": string[],
+    "disabledComments": string[],
   },
 }
 
 export interface NestedScopedConfigs {
   "enable": boolean,
-  "include": string[],
-  "exclude": string[],
+  "excludeFiles": string[],
+  "includeFiles": string[],
+  "supportLanguages": string[],
+  "userComments": string[],
 }
 

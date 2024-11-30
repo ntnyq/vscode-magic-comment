@@ -47,11 +47,15 @@
 
 <!-- configs -->
 
-| Key                     | Description      | Type      | Default |
-| ----------------------- | ---------------- | --------- | ------- |
-| `magic-comment.enable`  | Enable extension | `boolean` | `true`  |
-| `magic-comment.include` | Include files    | `array`   | `[]`    |
-| `magic-comment.exclude` | Exclude files    | `array`   | `[]`    |
+| Key                                 | Description                 | Type      | Default |
+| ----------------------------------- | --------------------------- | --------- | ------- |
+| `magic-comment.enable`              | Enable extension            | `boolean` | `true`  |
+| `magic-comment.excludeFiles`        | Exclude files               | `array`   | `[]`    |
+| `magic-comment.includeFiles`        | Include files               | `array`   | `[]`    |
+| `magic-comment.supportLanguages`    | Enabled in languages        | `array`   | `[]`    |
+| `magic-comment.userComments`        | User defined magic comments | `array`   | `[]`    |
+| `magic-comments.disabledCategories` | Disabled by category name   | `array`   | `[]`    |
+| `magic-comments.disabledComments`   | Disabled by comments name   | `array`   | `[]`    |
 
 <!-- configs -->
 

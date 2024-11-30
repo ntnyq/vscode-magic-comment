@@ -1,11 +1,16 @@
 import { defineExtension } from 'reactive-vscode'
 import { version } from '../package.json'
-import { useAnnotations } from './annotations'
-import { useCommands } from './commands'
+import { config } from './config'
+import { useAnnotations } from './features/annotations'
+import { useCommands } from './features/commands'
 import { logger } from './utils'
 
 const { activate, deactivate } = defineExtension(async () => {
   logger.info(`✅ Activated, v${version}`)
+
+  if (!config.enable) {
+    return logger.warn('❌ Disabled by configuration')
+  }
 
   useCommands()
   useAnnotations()

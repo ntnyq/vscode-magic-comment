@@ -1,3 +1,7 @@
+/**
+ * @file markdown
+ */
+
 import { MarkdownString } from 'vscode'
 
 export function getMarkdown(name: string) {

@@ -6,9 +6,9 @@ import {
   watchEffect,
 } from 'reactive-vscode'
 import { DecorationRangeBehavior, window } from 'vscode'
-import { config } from './config'
+import { config } from '../config'
 import type { Range } from 'vscode'
-import type { DecorationMatch } from './types'
+import type { DecorationMatch } from '../types'
 
 export function useAnnotations() {
   const BuiltInDecoration = window.createTextEditorDecorationType({

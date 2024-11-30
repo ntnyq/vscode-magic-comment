@@ -6,7 +6,7 @@
   "type": "commonjs",
   "version": "0.0.0",
   "private": true,
-  "packageManager": "pnpm@9.14.2",
+  "packageManager": "pnpm@9.15.2",
   "description": "Add annotations to magic comments",
   "keywords": [],
   "license": "MIT",
@@ -36,34 +36,33 @@
     "lint": "eslint .",
     "pack": "vsce package --no-dependencies",
     "prepare": "husky",
-    "release": "run-s release:check release:build release:version release:publish",
+    "release": "run-s release:check release:version release:publish",
     "release:build": "run-s generate:meta build",
     "release:check": "run-s lint typecheck",
     "release:publish": "vsce publish --no-dependencies",
-    "release:version": "bumpp --all",
+    "release:version": "bumpp --all --execute='pnpm release:build'",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@ntnyq/utils": "^0.3.1",
-    "reactive-vscode": "^0.2.8"
+    "@ntnyq/utils": "^0.4.3",
+    "reactive-vscode": "^0.2.9"
   },
   "devDependencies": {
-    "@ntnyq/eslint-config": "^3.3.0",
+    "@ntnyq/eslint-config": "^3.11.0",
     "@ntnyq/prettier-config": "^1.22.0",
-    "@types/node": "^22.9.3",
-    "@types/vscode": "^1.95.0",
+    "@types/node": "^22.10.3",
+    "@types/vscode": "^1.96.0",
     "@vscode/vsce": "^3.2.1",
-    "bumpp": "^9.8.1",
-    "eslint": "^9.15.0",
+    "bumpp": "^9.9.2",
+    "eslint": "^9.17.0",
     "husky": "^9.1.7",
     "nano-staged": "^0.8.0",
-    "npm-run-all2": "^7.0.1",
-    "pnpm": "^9.14.2",
+    "npm-run-all2": "^7.0.2",
     "prettier": "3.3.3",
     "tsup": "^8.3.5",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2",
-    "vscode-ext-gen": "^0.5.0"
+    "vscode-ext-gen": "^0.5.5"
   },
   "activationEvents": [
     "onStartupFinished"
@@ -72,44 +71,78 @@
     "commands": [
       {
         "category": "Magic Comment",
-        "title": "getLanguageConfig",
-        "command": "magic-comment.getLanguageConfig"
+        "command": "magic-comment.getLanguageConfig",
+        "title": "getLanguageConfig"
       }
     ],
     "configuration": {
-      "title": "Magic Comment",
       "properties": {
         "magic-comment.enable": {
-          "type": "boolean",
           "default": true,
-          "description": "Enable extension"
+          "description": "Enable extension",
+          "type": "boolean"
         },
-        "magic-comment.include": {
-          "type": "array",
-          "default": [],
-          "description": "Include files",
-          "items": {
-            "type": "string"
-          }
-        },
-        "magic-comment.exclude": {
-          "type": "array",
+        "magic-comment.excludeFiles": {
           "default": [],
           "description": "Exclude files",
           "items": {
             "type": "string"
-          }
+          },
+          "type": "array"
+        },
+        "magic-comment.includeFiles": {
+          "default": [],
+          "description": "Include files",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "magic-comment.supportLanguages": {
+          "default": [],
+          "description": "Enabled in languages",
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "magic-comment.userComments": {
+          "default": [],
+          "description": "User defined magic comments",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "magic-comments.disabledCategories": {
+          "default": [],
+          "description": "Disabled by category name",
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "magic-comments.disabledComments": {
+          "default": [],
+          "description": "Disabled by comments name",
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
         }
-      }
+      },
+      "title": "Magic Comment"
     }
   },
   "categories": [
     "Other"
   ],
   "engines": {
-    "vscode": "^1.95.0"
+    "vscode": "^1.96.0"
   },
-  "prettier": "@ntnyq/prettier-config",
   "nano-staged": {
     "*.{js,ts,mjs,cjs,md,json,yml,yaml}": "eslint --fix"
   }
