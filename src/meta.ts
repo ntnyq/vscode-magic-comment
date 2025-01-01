@@ -30,42 +30,46 @@ export const commands = {
  * Type union of all configs
  */
 export type ConfigKey = 
+  | "magic-comment.annotation"
+  | "magic-comment.disabledCategories"
+  | "magic-comment.disabledNames"
   | "magic-comment.enable"
   | "magic-comment.excludeFiles"
   | "magic-comment.includeFiles"
   | "magic-comment.supportLanguages"
   | "magic-comment.userComments"
-  | "magic-comments.disabledCategories"
-  | "magic-comments.disabledComments"
 
 export interface ConfigKeyTypeMap {
+  "magic-comment.annotation": { 'after': { 'contentText': string; 'margin': string }; 'color': string },
+  "magic-comment.disabledCategories": string[],
+  "magic-comment.disabledNames": string[],
   "magic-comment.enable": boolean,
   "magic-comment.excludeFiles": string[],
   "magic-comment.includeFiles": string[],
   "magic-comment.supportLanguages": string[],
-  "magic-comment.userComments": string[],
-  "magic-comments.disabledCategories": string[],
-  "magic-comments.disabledComments": string[],
+  "magic-comment.userComments": { 'category': string; 'description': string; 'examples': string[]; 'language': string[]; 'name': string; 'pattern': string; 'url': string }[],
 }
 
 export interface ConfigShorthandMap {
+  annotation: "magic-comment.annotation",
+  disabledCategories: "magic-comment.disabledCategories",
+  disabledNames: "magic-comment.disabledNames",
   enable: "magic-comment.enable",
   excludeFiles: "magic-comment.excludeFiles",
   includeFiles: "magic-comment.includeFiles",
   supportLanguages: "magic-comment.supportLanguages",
   userComments: "magic-comment.userComments",
-  magicCommentsDisabledCategories: "magic-comments.disabledCategories",
-  magicCommentsDisabledComments: "magic-comments.disabledComments",
 }
 
 export interface ConfigShorthandTypeMap {
+  annotation: { 'after': { 'contentText': string; 'margin': string }; 'color': string },
+  disabledCategories: string[],
+  disabledNames: string[],
   enable: boolean,
   excludeFiles: string[],
   includeFiles: string[],
   supportLanguages: string[],
-  userComments: string[],
-  magicCommentsDisabledCategories: string[],
-  magicCommentsDisabledComments: string[],
+  userComments: { 'category': string; 'description': string; 'examples': string[]; 'language': string[]; 'name': string; 'pattern': string; 'url': string }[],
 }
 
 export interface ConfigItem<T extends keyof ConfigKeyTypeMap> {
@@ -78,6 +82,36 @@ export interface ConfigItem<T extends keyof ConfigKeyTypeMap> {
  * Configs map registered by `ntnyq.magic-comment`
  */
 export const configs = {
+  /**
+   * Magic comment annotation
+   * @key `magic-comment.annotation`
+   * @default `{ "after": { "contentText": "🚀", "margin": "0 0 0 0.5em" }, "color": "rgb(255, 189, 42)" }`
+   * @type `object`
+   */
+  annotation: {
+    key: "magic-comment.annotation",
+    default: { "after": { "contentText": "🚀", "margin": "0 0 0 0.5em" }, "color": "rgb(255, 189, 42)" },
+  } as ConfigItem<"magic-comment.annotation">,
+  /**
+   * Disabled by comments category
+   * @key `magic-comment.disabledCategories`
+   * @default `[]`
+   * @type `array`
+   */
+  disabledCategories: {
+    key: "magic-comment.disabledCategories",
+    default: [],
+  } as ConfigItem<"magic-comment.disabledCategories">,
+  /**
+   * Disabled by comments name
+   * @key `magic-comment.disabledNames`
+   * @default `[]`
+   * @type `array`
+   */
+  disabledNames: {
+    key: "magic-comment.disabledNames",
+    default: [],
+  } as ConfigItem<"magic-comment.disabledNames">,
   /**
    * Enable extension
    * @key `magic-comment.enable`
@@ -128,39 +162,25 @@ export const configs = {
     key: "magic-comment.userComments",
     default: [],
   } as ConfigItem<"magic-comment.userComments">,
-  /**
-   * Disabled by category name
-   * @key `magic-comments.disabledCategories`
-   * @default `[]`
-   * @type `array`
-   */
-  magicCommentsDisabledCategories: {
-    key: "magic-comments.disabledCategories",
-    default: [],
-  } as ConfigItem<"magic-comments.disabledCategories">,
-  /**
-   * Disabled by comments name
-   * @key `magic-comments.disabledComments`
-   * @default `[]`
-   * @type `array`
-   */
-  magicCommentsDisabledComments: {
-    key: "magic-comments.disabledComments",
-    default: [],
-  } as ConfigItem<"magic-comments.disabledComments">,
 }
 
 export interface ScopedConfigKeyTypeMap {
+  "annotation": { 'after': { 'contentText': string; 'margin': string }; 'color': string },
+  "disabledCategories": string[],
+  "disabledNames": string[],
   "enable": boolean,
   "excludeFiles": string[],
   "includeFiles": string[],
   "supportLanguages": string[],
-  "userComments": string[],
+  "userComments": { 'category': string; 'description': string; 'examples': string[]; 'language': string[]; 'name': string; 'pattern': string; 'url': string }[],
 }
 
 export const scopedConfigs = {
   scope: "magic-comment",
   defaults: {
+    "annotation": { "after": { "contentText": "🚀", "margin": "0 0 0 0.5em" }, "color": "rgb(255, 189, 42)" },
+    "disabledCategories": [],
+    "disabledNames": [],
     "enable": true,
     "excludeFiles": [],
     "includeFiles": [],
@@ -171,23 +191,25 @@ export const scopedConfigs = {
 
 export interface NestedConfigs {
   "magic-comment": {
+    "annotation": { 'after': { 'contentText': string; 'margin': string }; 'color': string },
+    "disabledCategories": string[],
+    "disabledNames": string[],
     "enable": boolean,
     "excludeFiles": string[],
     "includeFiles": string[],
     "supportLanguages": string[],
-    "userComments": string[],
-  },
-  "magic-comments": {
-    "disabledCategories": string[],
-    "disabledComments": string[],
+    "userComments": { 'category': string; 'description': string; 'examples': string[]; 'language': string[]; 'name': string; 'pattern': string; 'url': string }[],
   },
 }
 
 export interface NestedScopedConfigs {
+  "annotation": { 'after': { 'contentText': string; 'margin': string }; 'color': string },
+  "disabledCategories": string[],
+  "disabledNames": string[],
   "enable": boolean,
   "excludeFiles": string[],
   "includeFiles": string[],
   "supportLanguages": string[],
-  "userComments": string[],
+  "userComments": { 'category': string; 'description': string; 'examples': string[]; 'language': string[]; 'name': string; 'pattern': string; 'url': string }[],
 }
 

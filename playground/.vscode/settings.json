@@ -1,3 +1,11 @@
 {
-  "magic-comment.enable": true
+  "magic-comment.enable": true,
+  "magic-comment.userComments": [
+    {
+      "name": "perfectionist-group",
+      "pattern": "//\\s(@perfectionist-group)\\s",
+      "category": "eslint-plugin-perfectionist",
+      "description": "Magic comment for for option `partitionByComment`"
+    }
+  ]
 }

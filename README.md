@@ -47,15 +47,16 @@
 
 <!-- configs -->
 
-| Key                                 | Description                 | Type      | Default |
-| ----------------------------------- | --------------------------- | --------- | ------- |
-| `magic-comment.enable`              | Enable extension            | `boolean` | `true`  |
-| `magic-comment.excludeFiles`        | Exclude files               | `array`   | `[]`    |
-| `magic-comment.includeFiles`        | Include files               | `array`   | `[]`    |
-| `magic-comment.supportLanguages`    | Enabled in languages        | `array`   | `[]`    |
-| `magic-comment.userComments`        | User defined magic comments | `array`   | `[]`    |
-| `magic-comments.disabledCategories` | Disabled by category name   | `array`   | `[]`    |
-| `magic-comments.disabledComments`   | Disabled by comments name   | `array`   | `[]`    |
+| Key                                | Description                   | Type      | Default                                                                                       |
+| ---------------------------------- | ----------------------------- | --------- | --------------------------------------------------------------------------------------------- |
+| `magic-comment.annotation`         | Magic comment annotation      | `object`  | `{ "after": { "contentText": "🚀", "margin": "0 0 0 0.5em" }, "color": "rgb(255, 189, 42)" }` |
+| `magic-comment.disabledCategories` | Disabled by comments category | `array`   | `[]`                                                                                          |
+| `magic-comment.disabledNames`      | Disabled by comments name     | `array`   | `[]`                                                                                          |
+| `magic-comment.enable`             | Enable extension              | `boolean` | `true`                                                                                        |
+| `magic-comment.excludeFiles`       | Exclude files                 | `array`   | `[]`                                                                                          |
+| `magic-comment.includeFiles`       | Include files                 | `array`   | `[]`                                                                                          |
+| `magic-comment.supportLanguages`   | Enabled in languages          | `array`   | `[]`                                                                                          |
+| `magic-comment.userComments`       | User defined magic comments   | `array`   | `[]`                                                                                          |
 
 <!-- configs -->
 

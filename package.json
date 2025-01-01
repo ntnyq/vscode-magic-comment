@@ -77,6 +77,51 @@
     ],
     "configuration": {
       "properties": {
+        "magic-comment.annotation": {
+          "additionalProperties": false,
+          "description": "Magic comment annotation",
+          "properties": {
+            "after": {
+              "additionalProperties": false,
+              "properties": {
+                "contentText": {
+                  "default": "🚀",
+                  "type": "string"
+                },
+                "margin": {
+                  "default": "0 0 0 0.5em",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "color": {
+              "default": "rgb(255, 189, 42)",
+              "description": "Color of annotation",
+              "format": "color",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "magic-comment.disabledCategories": {
+          "default": [],
+          "description": "Disabled by comments category",
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "magic-comment.disabledNames": {
+          "default": [],
+          "description": "Disabled by comments name",
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
         "magic-comment.enable": {
           "default": true,
           "description": "Enable extension",
@@ -111,27 +156,46 @@
           "default": [],
           "description": "User defined magic comments",
           "items": {
-            "type": "string"
+            "additionalProperties": false,
+            "properties": {
+              "category": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "examples": {
+                "default": [],
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "language": {
+                "default": [],
+                "items": {
+                  "type": "string"
+                },
+                "type": "array",
+                "uniqueItems": true
+              },
+              "name": {
+                "type": "string"
+              },
+              "pattern": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "pattern"
+            ],
+            "type": "object"
           },
           "type": "array"
-        },
-        "magic-comments.disabledCategories": {
-          "default": [],
-          "description": "Disabled by category name",
-          "items": {
-            "type": "string"
-          },
-          "type": "array",
-          "uniqueItems": true
-        },
-        "magic-comments.disabledComments": {
-          "default": [],
-          "description": "Disabled by comments name",
-          "items": {
-            "type": "string"
-          },
-          "type": "array",
-          "uniqueItems": true
         }
       },
       "title": "Magic Comment"
