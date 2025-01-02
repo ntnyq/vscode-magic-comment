@@ -4,7 +4,7 @@
   "displayName": "Magic Comment",
   "preview": true,
   "type": "commonjs",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "packageManager": "pnpm@9.15.2",
   "description": "Add annotations to magic comments",
