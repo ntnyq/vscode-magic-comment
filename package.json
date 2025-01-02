@@ -1,6 +1,6 @@
 {
   "publisher": "ntnyq",
-  "name": "magic-comment",
+  "name": "vscode-magic-comment",
   "displayName": "Magic Comment",
   "preview": true,
   "type": "commonjs",
@@ -14,13 +14,13 @@
     "name": "ntnyq",
     "email": "ntnyq13@gmail.com"
   },
-  "homepage": "https://github.com/ntnyq/magic-comment",
+  "homepage": "https://github.com/ntnyq/vscode-magic-comment",
   "repository": {
     "type": "github",
-    "url": "https://github.com/ntnyq/magic-comment.git"
+    "url": "https://github.com/ntnyq/vscode-magic-comment.git"
   },
   "bugs": {
-    "url": "https://github.com/ntnyq/magic-comment/issues/new"
+    "url": "https://github.com/ntnyq/vscode-magic-comment/issues/new"
   },
   "main": "./dist/index.js",
   "icon": "./res/logo.png",
@@ -32,7 +32,7 @@
   "scripts": {
     "build": "tsup",
     "dev": "NODE_ENV=development tsup --watch",
-    "generate:meta": "vscode-ext-gen --output src/meta.ts",
+    "generate:meta": "vscode-ext-gen --output src/meta.ts --scope magic-comment",
     "lint": "eslint .",
     "pack": "vsce package --no-dependencies",
     "prepare": "husky",
