@@ -4,7 +4,7 @@
 // Meta info
 export const publisher = "ntnyq"
 export const name = "magic-comment"
-export const version = "0.0.0"
+export const version = "0.0.1"
 export const displayName = "Magic Comment"
 export const description = "Add annotations to magic comments"
 export const extensionId = `${publisher}.${name}`
