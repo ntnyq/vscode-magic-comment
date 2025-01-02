@@ -1,11 +1,11 @@
 # vscode-magic-comment
 
-[![GitHub release](https://img.shields.io/github/v/release/ntnyq/vscode-magic-comment?include_prereleases&label=Visual%20Studio%20Marketplace)](https://marketplace.visualstudio.com/items?itemName=ntnyq.vscode-magic-comment)
-[![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/ntnyq.vscode-magic-comment)](https://marketplace.visualstudio.com/items?itemName=ntnyq.vscode-magic-comment)
-[![Visual Studio Marketplace Rating](https://img.shields.io/visual-studio-marketplace/r/ntnyq.vscode-magic-comment)](https://marketplace.visualstudio.com/items?itemName=ntnyq.vscode-magic-comment)
-[![GitHub Workflow Status](https://github.com/ntnyq/vscode-magic-comment/workflows/CI/badge.svg)](https://github.com/ntnyq/vscode-magic-comment/actions)
-[![GitHub top language](https://img.shields.io/github/languages/top/ntnyq/vscode-magic-comment)](https://github.com/ntnyq/vscode-magic-comment)
-[![GitHub](https://img.shields.io/github/license/ntnyq/vscode-magic-comment)](https://github.com/ntnyq/vscode-magic-comment/blob/main/LICENSE)
+[![CI](https://github.com/ntnyq/vscode-magic-comment/workflows/CI/badge.svg)](https://github.com/ntnyq/vscode-magic-comment/actions)
+[![Marketplace](https://img.shields.io/github/v/release/ntnyq/vscode-magic-comment?include_prereleases&label=Visual%20Studio%20Marketplace)](https://marketplace.visualstudio.com/items?itemName=ntnyq.vscode-magic-comment)
+[![Install](https://img.shields.io/visual-studio-marketplace/i/ntnyq.vscode-magic-comment)](https://marketplace.visualstudio.com/items?itemName=ntnyq.vscode-magic-comment)
+[![Rating](https://img.shields.io/visual-studio-marketplace/r/ntnyq.vscode-magic-comment)](https://marketplace.visualstudio.com/items?itemName=ntnyq.vscode-magic-comment)
+[![Language](https://img.shields.io/github/languages/top/ntnyq/vscode-magic-comment)](https://github.com/ntnyq/vscode-magic-comment)
+[![License](https://img.shields.io/github/license/ntnyq/vscode-magic-comment)](https://github.com/ntnyq/vscode-magic-comment/blob/main/LICENSE)
 
 > Highlight and add annotations to magic comments.
 
@@ -18,8 +18,10 @@
 
 > Sorted alphabetically
 
+- autoprefixer
 - biome
 - c8
+- case-police
 - compiler
 - cspell
 - eslint
