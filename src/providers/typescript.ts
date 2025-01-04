@@ -15,39 +15,33 @@
 
 import { defineMagicComment } from '../utils/define'
 
-const sharedLanguages = ['javascript', 'typescript', 'javascriptreact', 'typescriptreact']
-
 const tsCheckProvider = defineMagicComment({
   name: 'ts-check',
   description: `ts-check`,
   url: 'https://www.typescriptlang.org/docs/handbook/intro-to-js-ts.html#ts-check',
-  pattern: /\/\*\s*@ts-check\s/,
+  patterns: [/\/\*\s*@ts-check\s/g],
   category: 'typescript',
-  languages: sharedLanguages,
 })
 
 const tsNocheckProvider = defineMagicComment({
   name: 'ts-nocheck',
   description: `ts-nocheck`,
-  pattern: /\/\*\s*@ts-nocheck\s/,
+  patterns: [/\/\*\s*@ts-nocheck\s/g],
   category: 'typescript',
-  languages: sharedLanguages,
 })
 
 const tsIgnoreProvider = defineMagicComment({
   name: 'ts-ignore',
   description: `ts-ignore`,
-  pattern: /\/\*\s*@ts-ignore\s/,
+  patterns: [/\/\*\s*@ts-ignore\s/g],
   category: 'typescript',
-  languages: sharedLanguages,
 })
 
 const tsExpectErrorProvider = defineMagicComment({
   name: 'ts-expect-error',
   description: `ts-expect-error`,
-  pattern: /\/\*\s*@ts-expect-error\s/,
+  patterns: [/\/\*\s*@ts-expect-error\s/g],
   category: 'typescript',
-  languages: sharedLanguages,
 })
 
 // @keep-sorted

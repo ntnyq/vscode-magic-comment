@@ -1,4 +1,4 @@
-import { isString } from '@ntnyq/utils'
+import { isString, toArray } from '@ntnyq/utils'
 import {
   computed,
   shallowRef,
@@ -12,7 +12,6 @@ import { useMagicComments } from '../composables'
 import { config, DEFAULT_ANNOTATION } from '../config'
 import { logger } from '../utils'
 import { getMagicCommentMarkdown } from '../utils/markdown'
-import type { Position } from 'vscode'
 import type { DecorationMatch } from '../types'
 
 export function useAnnotations() {
@@ -44,34 +43,34 @@ export function useAnnotations() {
     const keys: [Range, string][] = []
 
     magicComments.value.forEach(magicComment => {
-      const regexp = isString(magicComment.pattern)
-        ? new RegExp(magicComment.pattern, 'g')
-        : magicComment.pattern
+      const patterns = toArray(magicComment.patterns).map(pattern =>
+        isString(pattern) ? new RegExp(pattern, 'g') : pattern,
+      ) as RegExp[]
 
-      let match: RegExpExecArray | null = null
+      patterns.forEach(regexp => {
+        // required global flag
+        if (!regexp.global) return
 
-      regexp.lastIndex = 0
+        let match: RegExpExecArray | null = null
 
-      while ((match = regexp.exec(text.value!))) {
-        if (!editor.value) continue
+        // reset lastIndex
+        regexp.lastIndex = 0
 
-        let startPos: Position
-        let endPos: Position
+        while ((match = regexp.exec(text.value!))) {
+          if (!editor.value || !match[1]) continue
 
-        if (match?.[1]) {
           const startIndex = match.index + match[0].indexOf(match[1])
 
-          startPos = editor.value.document.positionAt(startIndex)
-          endPos = editor.value.document.positionAt(startIndex + match[1].length)
-        } else {
-          startPos = editor.value.document.positionAt(match.index)
-          endPos = editor.value.document.positionAt(match.index + match[0].length)
+          const startPos = editor.value.document.positionAt(startIndex)
+          const endPos = editor.value.document.positionAt(startIndex + match[1].length)
+
+          logger.info(
+            `🔍 Found '${magicComment.name}' at ${startPos.line}:${startPos.character}\npattern: '${regexp.source}'`,
+          )
+
+          keys.push([new Range(startPos, endPos), magicComment.name])
         }
-
-        logger.info(`🔍 Found '${magicComment.name}' at ${startPos.line}:${startPos.character}`)
-
-        keys.push([new Range(startPos, endPos), magicComment.name])
-      }
+      })
     })
 
     decorations.value = keys.map(([range, magicComment]) => {

@@ -1,7 +1,7 @@
 {
   "publisher": "ntnyq",
   "name": "vscode-magic-comment",
-  "displayName": "Magic Comment",
+  "displayName": "VSCode Magic Comment",
   "preview": true,
   "type": "commonjs",
   "version": "0.0.2",
@@ -41,16 +41,17 @@
     "release:check": "run-s lint typecheck",
     "release:publish": "vsce publish --no-dependencies",
     "release:version": "bumpp --all --execute='pnpm release:build'",
+    "test": "vitest",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@ntnyq/utils": "^0.4.3",
+    "@ntnyq/utils": "^0.4.5",
     "reactive-vscode": "^0.2.9"
   },
   "devDependencies": {
     "@ntnyq/eslint-config": "^3.11.0",
-    "@ntnyq/prettier-config": "^1.22.0",
-    "@types/node": "^22.10.3",
+    "@ntnyq/prettier-config": "^1.22.1",
+    "@types/node": "^22.10.5",
     "@types/vscode": "^1.96.0",
     "@vscode/vsce": "^3.2.1",
     "bumpp": "^9.9.2",
@@ -62,6 +63,7 @@
     "tsup": "^8.3.5",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2",
+    "vitest": "^3.0.0-beta.3",
     "vscode-ext-gen": "^0.5.5"
   },
   "activationEvents": [
@@ -171,19 +173,22 @@
                 },
                 "type": "array"
               },
-              "language": {
-                "default": [],
-                "items": {
-                  "type": "string"
-                },
-                "type": "array",
-                "uniqueItems": true
-              },
               "name": {
                 "type": "string"
               },
-              "pattern": {
-                "type": "string"
+              "patterns": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "items": {
+                      "type": "string"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                  }
+                ]
               },
               "url": {
                 "type": "string"
@@ -191,7 +196,7 @@
             },
             "required": [
               "name",
-              "pattern"
+              "patterns"
             ],
             "type": "object"
           },

@@ -5,9 +5,9 @@ export interface MagicComment {
   name: string
 
   /**
-   * magic comment pattern
+   * magic comment patterns
    */
-  pattern: string | RegExp
+  patterns: string | RegExp | RegExp[] | string[]
 
   /**
    * magic comment category
@@ -15,7 +15,7 @@ export interface MagicComment {
   category?: string
 
   /**
-   * magic comment description
+   * magic comment description, markdown is supported
    */
   description?: string
 
@@ -23,11 +23,6 @@ export interface MagicComment {
    * magic comment examples
    */
   examples?: string[]
-
-  /**
-   * magic comment languages
-   */
-  languages?: string[]
 
   /**
    * magic comment url

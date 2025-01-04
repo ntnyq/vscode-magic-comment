@@ -1,6 +1,7 @@
 import { computed } from 'reactive-vscode'
 import { config } from '../config'
 import { magicCommentsProviders } from '../providers'
+import type { MagicComment } from '../types/core'
 
 export function useMagicComments() {
   const magicComments = computed(() => {
@@ -10,7 +11,7 @@ export function useMagicComments() {
 
       // user defined magic comments
       ...config.userComments,
-    ]
+    ] as MagicComment[]
 
     return allMagicComments
   })

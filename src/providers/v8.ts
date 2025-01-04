@@ -1,18 +1,17 @@
 /**
  * @file v8
  *
- * @see {@link https://github.com/istanbuljs/v8-to-istanbul#ignoring-uncovered-lines}
+ * @see {@link https://github.com/istanbuljs/v8-to-istanbul/blob/master/lib/source.js}
  */
 
 import { defineMagicComment } from '../utils/define'
 
-const v8IgnoreProvider = defineMagicComment({
+const v8IgnoreNextProvider = defineMagicComment({
   name: 'v8-ignore',
   description: `v8-ignore`,
-  pattern: /\/\*\s*v8-ignore\s/,
+  patterns: /\/\*\s*v8-ignore\s/,
   category: 'v8',
-  languages: ['javascript', 'typescript', 'javascriptreact', 'typescriptreact'],
 })
 
 // @keep-sorted
-export const v8Providers = [v8IgnoreProvider]
+export const v8Providers = [v8IgnoreNextProvider]

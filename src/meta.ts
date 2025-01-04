@@ -5,7 +5,7 @@
 export const publisher = "ntnyq"
 export const name = "vscode-magic-comment"
 export const version = "0.0.2"
-export const displayName = "Magic Comment"
+export const displayName = "VSCode Magic Comment"
 export const description = "Add annotations to magic comments"
 export const extensionId = `${publisher}.${name}`
 
@@ -47,7 +47,7 @@ export interface ConfigKeyTypeMap {
   "magic-comment.excludeFiles": string[],
   "magic-comment.includeFiles": string[],
   "magic-comment.supportLanguages": string[],
-  "magic-comment.userComments": { 'category': string; 'description': string; 'examples': string[]; 'language': string[]; 'name': string; 'pattern': string; 'url': string }[],
+  "magic-comment.userComments": { 'category': string; 'description': string; 'examples': string[]; 'name': string; 'patterns': unknown; 'url': string }[],
 }
 
 export interface ConfigShorthandMap {
@@ -69,7 +69,7 @@ export interface ConfigShorthandTypeMap {
   excludeFiles: string[],
   includeFiles: string[],
   supportLanguages: string[],
-  userComments: { 'category': string; 'description': string; 'examples': string[]; 'language': string[]; 'name': string; 'pattern': string; 'url': string }[],
+  userComments: { 'category': string; 'description': string; 'examples': string[]; 'name': string; 'patterns': unknown; 'url': string }[],
 }
 
 export interface ConfigItem<T extends keyof ConfigKeyTypeMap> {
@@ -172,7 +172,7 @@ export interface ScopedConfigKeyTypeMap {
   "excludeFiles": string[],
   "includeFiles": string[],
   "supportLanguages": string[],
-  "userComments": { 'category': string; 'description': string; 'examples': string[]; 'language': string[]; 'name': string; 'pattern': string; 'url': string }[],
+  "userComments": { 'category': string; 'description': string; 'examples': string[]; 'name': string; 'patterns': unknown; 'url': string }[],
 }
 
 export const scopedConfigs = {
@@ -198,7 +198,7 @@ export interface NestedConfigs {
     "excludeFiles": string[],
     "includeFiles": string[],
     "supportLanguages": string[],
-    "userComments": { 'category': string; 'description': string; 'examples': string[]; 'language': string[]; 'name': string; 'pattern': string; 'url': string }[],
+    "userComments": { 'category': string; 'description': string; 'examples': string[]; 'name': string; 'patterns': unknown; 'url': string }[],
   },
 }
 
@@ -210,6 +210,6 @@ export interface NestedScopedConfigs {
   "excludeFiles": string[],
   "includeFiles": string[],
   "supportLanguages": string[],
-  "userComments": { 'category': string; 'description': string; 'examples': string[]; 'language': string[]; 'name': string; 'pattern': string; 'url': string }[],
+  "userComments": { 'category': string; 'description': string; 'examples': string[]; 'name': string; 'patterns': unknown; 'url': string }[],
 }
 

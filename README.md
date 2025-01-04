@@ -9,6 +9,9 @@
 
 > Highlight and add annotations to magic comments.
 
+> [!CAUTION]
+> Work in progress. May not stable yet.
+
 ## Features
 
 - Highlight magic comments
