@@ -4,7 +4,7 @@
 // Meta info
 export const publisher = "ntnyq"
 export const name = "vscode-magic-comment"
-export const version = "0.0.2"
+export const version = "0.0.3"
 export const displayName = "VSCode Magic Comment"
 export const description = "Add annotations to magic comments"
 export const extensionId = `${publisher}.${name}`
