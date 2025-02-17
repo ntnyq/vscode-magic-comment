@@ -45,25 +45,25 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@ntnyq/utils": "^0.4.5",
+    "@ntnyq/utils": "^0.5.2",
     "reactive-vscode": "^0.2.10"
   },
   "devDependencies": {
     "@ntnyq/eslint-config": "^3.12.3",
     "@ntnyq/prettier-config": "^1.22.1",
-    "@types/node": "^22.13.0",
-    "@types/vscode": "^1.96.0",
+    "@types/node": "^22.13.4",
+    "@types/vscode": "^1.97.0",
     "@vscode/vsce": "^3.2.2",
-    "bumpp": "^10.0.1",
-    "eslint": "^9.19.0",
+    "bumpp": "^10.0.3",
+    "eslint": "^9.20.1",
     "husky": "^9.1.7",
     "nano-staged": "^0.8.0",
     "npm-run-all2": "^7.0.2",
-    "prettier": "^3.4.2",
+    "prettier": "^3.5.1",
     "tsup": "^8.3.6",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3",
-    "vitest": "^3.0.4",
+    "vitest": "^3.0.5",
     "vscode-ext-gen": "^1.0.0"
   },
   "activationEvents": [
@@ -210,7 +210,7 @@
     "Other"
   ],
   "engines": {
-    "vscode": "^1.96.4"
+    "vscode": "^1.97.2"
   },
   "nano-staged": {
     "*.{js,ts,mjs,cjs,md,json,yml,yaml}": "eslint --fix"
