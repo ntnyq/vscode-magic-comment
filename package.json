@@ -50,7 +50,7 @@
   },
   "devDependencies": {
     "@ntnyq/eslint-config": "^3.12.3",
-    "@ntnyq/prettier-config": "^1.22.1",
+    "@ntnyq/prettier-config": "^2.0.0",
     "@types/node": "^22.13.4",
     "@types/vscode": "^1.97.0",
     "@vscode/vsce": "^3.2.2",
