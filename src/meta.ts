@@ -31,45 +31,41 @@ export const commands = {
  */
 export type ConfigKey = 
   | "magic-comment.annotation"
+  | "magic-comment.customMagicComments"
   | "magic-comment.disabledCategories"
   | "magic-comment.disabledNames"
   | "magic-comment.enable"
-  | "magic-comment.excludeFiles"
-  | "magic-comment.includeFiles"
-  | "magic-comment.supportLanguages"
-  | "magic-comment.userComments"
+  | "magic-comment.ignorePaths"
+  | "magic-comment.languages"
 
 export interface ConfigKeyTypeMap {
-  "magic-comment.annotation": { 'after': { 'contentText': string; 'margin': string }; 'color': string },
+  "magic-comment.annotation": { 'after'?: { 'contentText'?: string; 'margin'?: string }; 'color'?: string },
+  "magic-comment.customMagicComments": { 'category'?: string; 'description'?: string; 'name': string; 'patterns': unknown; 'url'?: string }[],
   "magic-comment.disabledCategories": string[],
   "magic-comment.disabledNames": string[],
   "magic-comment.enable": boolean,
-  "magic-comment.excludeFiles": string[],
-  "magic-comment.includeFiles": string[],
-  "magic-comment.supportLanguages": string[],
-  "magic-comment.userComments": { 'category': string; 'description': string; 'examples': string[]; 'name': string; 'patterns': unknown; 'url': string }[],
+  "magic-comment.ignorePaths": string[],
+  "magic-comment.languages": string[],
 }
 
 export interface ConfigShorthandMap {
   annotation: "magic-comment.annotation",
+  customMagicComments: "magic-comment.customMagicComments",
   disabledCategories: "magic-comment.disabledCategories",
   disabledNames: "magic-comment.disabledNames",
   enable: "magic-comment.enable",
-  excludeFiles: "magic-comment.excludeFiles",
-  includeFiles: "magic-comment.includeFiles",
-  supportLanguages: "magic-comment.supportLanguages",
-  userComments: "magic-comment.userComments",
+  ignorePaths: "magic-comment.ignorePaths",
+  languages: "magic-comment.languages",
 }
 
 export interface ConfigShorthandTypeMap {
-  annotation: { 'after': { 'contentText': string; 'margin': string }; 'color': string },
+  annotation: { 'after'?: { 'contentText'?: string; 'margin'?: string }; 'color'?: string },
+  customMagicComments: { 'category'?: string; 'description'?: string; 'name': string; 'patterns': unknown; 'url'?: string }[],
   disabledCategories: string[],
   disabledNames: string[],
   enable: boolean,
-  excludeFiles: string[],
-  includeFiles: string[],
-  supportLanguages: string[],
-  userComments: { 'category': string; 'description': string; 'examples': string[]; 'name': string; 'patterns': unknown; 'url': string }[],
+  ignorePaths: string[],
+  languages: string[],
 }
 
 export interface ConfigItem<T extends keyof ConfigKeyTypeMap> {
@@ -92,6 +88,16 @@ export const configs = {
     key: "magic-comment.annotation",
     default: { "after": { "contentText": "🚀", "margin": "0 0 0 0.5em" }, "color": "rgb(255, 189, 42)" },
   } as ConfigItem<"magic-comment.annotation">,
+  /**
+   * User defined magic comments
+   * @key `magic-comment.customMagicComments`
+   * @default `[]`
+   * @type `array`
+   */
+  customMagicComments: {
+    key: "magic-comment.customMagicComments",
+    default: [],
+  } as ConfigItem<"magic-comment.customMagicComments">,
   /**
    * Disabled by comments category
    * @key `magic-comment.disabledCategories`
@@ -123,93 +129,69 @@ export const configs = {
     default: true,
   } as ConfigItem<"magic-comment.enable">,
   /**
-   * Exclude files
-   * @key `magic-comment.excludeFiles`
+   * Ignored paths pattern
+   * @key `magic-comment.ignorePaths`
    * @default `[]`
    * @type `array`
    */
-  excludeFiles: {
-    key: "magic-comment.excludeFiles",
+  ignorePaths: {
+    key: "magic-comment.ignorePaths",
     default: [],
-  } as ConfigItem<"magic-comment.excludeFiles">,
+  } as ConfigItem<"magic-comment.ignorePaths">,
   /**
-   * Include files
-   * @key `magic-comment.includeFiles`
-   * @default `[]`
+   * Enabled by language ids
+   * @key `magic-comment.languages`
+   * @default `["javascript","javascriptreact","markdown","typescript","typescriptreact"]`
    * @type `array`
    */
-  includeFiles: {
-    key: "magic-comment.includeFiles",
-    default: [],
-  } as ConfigItem<"magic-comment.includeFiles">,
-  /**
-   * Enabled in languages
-   * @key `magic-comment.supportLanguages`
-   * @default `[]`
-   * @type `array`
-   */
-  supportLanguages: {
-    key: "magic-comment.supportLanguages",
-    default: [],
-  } as ConfigItem<"magic-comment.supportLanguages">,
-  /**
-   * User defined magic comments
-   * @key `magic-comment.userComments`
-   * @default `[]`
-   * @type `array`
-   */
-  userComments: {
-    key: "magic-comment.userComments",
-    default: [],
-  } as ConfigItem<"magic-comment.userComments">,
+  languages: {
+    key: "magic-comment.languages",
+    default: ["javascript","javascriptreact","markdown","typescript","typescriptreact"],
+  } as ConfigItem<"magic-comment.languages">,
 }
 
 export interface ScopedConfigKeyTypeMap {
-  "annotation": { 'after': { 'contentText': string; 'margin': string }; 'color': string },
+  "annotation": { 'after'?: { 'contentText'?: string; 'margin'?: string }; 'color'?: string },
+  "customMagicComments": { 'category'?: string; 'description'?: string; 'name': string; 'patterns': unknown; 'url'?: string }[],
   "disabledCategories": string[],
   "disabledNames": string[],
   "enable": boolean,
-  "excludeFiles": string[],
-  "includeFiles": string[],
-  "supportLanguages": string[],
-  "userComments": { 'category': string; 'description': string; 'examples': string[]; 'name': string; 'patterns': unknown; 'url': string }[],
+  "ignorePaths": string[],
+  "languages": string[],
 }
 
 export const scopedConfigs = {
   scope: "magic-comment",
   defaults: {
     "annotation": { "after": { "contentText": "🚀", "margin": "0 0 0 0.5em" }, "color": "rgb(255, 189, 42)" },
+    "customMagicComments": [],
     "disabledCategories": [],
     "disabledNames": [],
     "enable": true,
-    "excludeFiles": [],
-    "includeFiles": [],
-    "supportLanguages": [],
-    "userComments": [],
+    "ignorePaths": [],
+    "languages": ["javascript","javascriptreact","markdown","typescript","typescriptreact"],
   } satisfies ScopedConfigKeyTypeMap,
 }
 
 export interface NestedConfigs {
   "magic-comment": {
-    "annotation": { 'after': { 'contentText': string; 'margin': string }; 'color': string },
+    "annotation": { 'after'?: { 'contentText'?: string; 'margin'?: string }; 'color'?: string },
+    "customMagicComments": { 'category'?: string; 'description'?: string; 'name': string; 'patterns': unknown; 'url'?: string }[],
     "disabledCategories": string[],
     "disabledNames": string[],
     "enable": boolean,
-    "excludeFiles": string[],
-    "includeFiles": string[],
-    "supportLanguages": string[],
-    "userComments": { 'category': string; 'description': string; 'examples': string[]; 'name': string; 'patterns': unknown; 'url': string }[],
+    "ignorePaths": string[],
+    "languages": string[],
   },
 }
 
 export interface NestedScopedConfigs {
-  "annotation": { 'after': { 'contentText': string; 'margin': string }; 'color': string },
+  "annotation": { 'after'?: { 'contentText'?: string; 'margin'?: string }; 'color'?: string },
+  "customMagicComments": { 'category'?: string; 'description'?: string; 'name': string; 'patterns': unknown; 'url'?: string }[],
   "disabledCategories": string[],
   "disabledNames": string[],
   "enable": boolean,
-  "excludeFiles": string[],
-  "includeFiles": string[],
-  "supportLanguages": string[],
-  "userComments": { 'category': string; 'description': string; 'examples': string[]; 'name': string; 'patterns': unknown; 'url': string }[],
+  "ignorePaths": string[],
+  "languages": string[],
 }
 

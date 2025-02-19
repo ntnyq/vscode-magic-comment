@@ -8,10 +8,13 @@ import {
   watchEffect,
 } from 'reactive-vscode'
 import { DecorationRangeBehavior, Range, window } from 'vscode'
-import { useMagicComments } from '../composables'
-import { config, DEFAULT_ANNOTATION } from '../config'
-import { logger } from '../utils'
-import { getMagicCommentMarkdown } from '../utils/markdown'
+import {
+  config,
+  enabledMagicComments,
+  getSupportedLanguageIds,
+} from '../config'
+import { DEFAULT_ANNOTATION } from '../constants'
+import { getMagicCommentMarkdown, isTruthy, logger } from '../utils'
 import type { DecorationMatch } from '../types'
 
 export function useAnnotations() {
@@ -19,30 +22,47 @@ export function useAnnotations() {
     rangeBehavior: DecorationRangeBehavior.ClosedClosed,
     color: config.annotation?.color || DEFAULT_ANNOTATION.color,
     after: {
-      contentText: config.annotation?.after?.contentText || DEFAULT_ANNOTATION.after.contentText,
-      margin: config.annotation?.after?.margin || DEFAULT_ANNOTATION.after.margin,
+      contentText:
+        config.annotation?.after?.contentText
+        || DEFAULT_ANNOTATION.after.contentText,
+      margin:
+        config.annotation?.after?.margin || DEFAULT_ANNOTATION.after.margin,
     },
   })
   const editor = useActiveTextEditor()
   const text = useDocumentText(() => editor.value?.document)
   const languageId = computed(() => editor.value?.document.languageId)
 
-  const { magicComments } = useMagicComments()
-
   const decorations = shallowRef<DecorationMatch[]>([])
+
+  const supportedLanguages = shallowRef<string[]>([])
 
   useActiveEditorDecorations(BuiltInDecoration, decorations)
 
   // Calculate decorations
-  watchEffect(() => {
-    if (!editor.value || !languageId.value || !text.value) {
+  watchEffect(async () => {
+    if (
+      // no editor instance
+      !editor.value
+      // no language id
+      || !languageId.value
+      // no text
+      || !text.value
+    ) {
       decorations.value = []
       return
     }
 
+    const { document } = editor.value
     const keys: [Range, string][] = []
 
-    magicComments.value.forEach(magicComment => {
+    if (!supportedLanguages.value.includes(languageId.value)) {
+      decorations.value = []
+      logger.warn(`❗️ Language ${languageId.value} is not supported`)
+      return
+    }
+
+    enabledMagicComments.value.forEach(magicComment => {
       const patterns = toArray(magicComment.patterns).map(pattern =>
         isString(pattern) ? new RegExp(pattern, 'g') : pattern,
       ) as RegExp[]
@@ -57,12 +77,13 @@ export function useAnnotations() {
         regexp.lastIndex = 0
 
         while ((match = regexp.exec(text.value!))) {
-          if (!editor.value || !match[1]) continue
+          const key = match[1]
+          if (!key) continue
 
-          const startIndex = match.index + match[0].indexOf(match[1])
+          const startIndex = match.index + match[0].indexOf(key)
 
-          const startPos = editor.value.document.positionAt(startIndex)
-          const endPos = editor.value.document.positionAt(startIndex + match[1].length)
+          const startPos = document.positionAt(startIndex)
+          const endPos = document.positionAt(startIndex + key.length)
 
           logger.info(
             `🔍 Found '${magicComment.name}' at ${startPos.line}:${startPos.character}\npattern: '${regexp.source}'`,
@@ -73,14 +94,20 @@ export function useAnnotations() {
       })
     })
 
-    decorations.value = keys.map(([range, magicComment]) => {
-      const item: DecorationMatch = {
-        range,
-        magicComment,
-        hoverMessage: getMagicCommentMarkdown(magicComment, magicComments.value),
-      }
+    decorations.value = keys
+      .map(([range, key]) => {
+        const item: DecorationMatch = {
+          range,
+          key,
+          hoverMessage: getMagicCommentMarkdown(key),
+        }
 
-      return item
-    })
+        return item
+      })
+      .filter(isTruthy)
+  })
+
+  watchEffect(async () => {
+    supportedLanguages.value = await getSupportedLanguageIds()
   })
 }

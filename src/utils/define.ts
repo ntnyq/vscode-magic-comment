@@ -1,4 +1,4 @@
-import type { MagicComment } from '../types/core'
+import type { MagicComment } from '../types'
 
 export function defineMagicComment(magicComment: MagicComment) {
   return magicComment

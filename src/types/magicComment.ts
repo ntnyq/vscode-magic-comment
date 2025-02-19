@@ -19,11 +19,6 @@ export interface MagicComment {
    */
   description?: string
 
-  /***
-   * magic comment examples
-   */
-  examples?: string[]
-
   /**
    * magic comment url
    */

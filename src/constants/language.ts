@@ -1,16 +1,10 @@
 /**
- * VSCode language ids
+ * Default language to support
  */
-export const LANGUAGE_ID = {
-  css: 'css',
-  javascript: 'javascript',
-  javascriptreact: 'javascriptreact',
-  less: 'less',
-  markdown: 'markdown',
-  postcss: 'postcss',
-  scss: 'scss',
-  stylus: 'stylus',
-  typescript: 'typescript',
-  typescriptreact: 'typescriptreact',
-  vue: 'vue',
-}
+export const DEFAULT_LANGUAGE_IDS: string[] = [
+  'markdown',
+  'javascript',
+  'typescript',
+  'javascriptreact',
+  'typescriptreact',
+]

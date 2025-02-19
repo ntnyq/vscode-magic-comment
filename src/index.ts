@@ -1,11 +1,11 @@
 import { defineExtension } from 'reactive-vscode'
 import { version } from '../package.json'
-import { config } from './config'
+import { config, enabledMagicComments, useCustomMagicComments } from './config'
 import { useAnnotations } from './features/annotations'
 import { useCommands } from './features/commands'
 import { logger } from './utils'
 
-const { activate, deactivate } = defineExtension(async () => {
+const { activate, deactivate } = defineExtension(() => {
   logger.info(`✅ Activated, v${version}`)
 
   if (!config.enable) {
@@ -13,6 +13,11 @@ const { activate, deactivate } = defineExtension(async () => {
   }
 
   useCommands()
+
+  useCustomMagicComments()
+
+  logger.info(`🎛 ${enabledMagicComments.value.length} magic comments loaded`)
+
   useAnnotations()
 })
 

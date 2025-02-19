@@ -1,10 +1,16 @@
 import { Worker } from 'node:worker_threads'
 
 export const worker = new Worker(
-  // eslint-disable-next-line jsdoc/no-bad-blocks
   new URL('./workers', import.meta.url /* @vite-ignore */) /* @vite-ignore */,
   {},
 )
+
+// @ts-check
+
+export const num = 25
+
+// @ts-expect-error type
+num = false
 
 /**
  * @unocss-include

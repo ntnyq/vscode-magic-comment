@@ -7,8 +7,8 @@
       "request": "launch",
       "args": [
         "--extensionDevelopmentPath=${workspaceFolder}",
-        "${workspaceFolder}/playground",
-        "--disable-extensions"
+        "${workspaceFolder}/playground"
+        // "--disable-extensions"
       ],
       "outFiles": ["${workspaceFolder}/dist/**/*.js"],
       "sourceMaps": true,

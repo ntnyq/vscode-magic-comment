@@ -1,10 +1,16 @@
 {
-  "prettier.enable": true,
   "eslint.enable": true,
+  "prettier.enable": true,
   "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.configPath": "./prettier.config.mjs",
+  "editor.codeActionsOnSave": {
+    "source.eslint.fixAll": "explicit",
+    "source.organizeImports": "never",
+    "source.sortImports": "never"
+  },
   "eslint.validate": [
     "vue",
-    "html",
     "json",
     "toml",
     "jsonc",
@@ -15,7 +21,19 @@
     "javascriptreact",
     "typescriptreact"
   ],
-  "cSpell.words": ["bumpp", "changelogithub", "forof", "hreg", "npmrc", "ofetch", "pnpm", "tsup"],
+  "cSpell.allowCompoundWords": true,
+  "cSpell.useGitignore": true,
+  "cSpell.words": [
+    "bumpp",
+    "changelogithub",
+    "forof",
+    "hreg",
+    "npmrc",
+    "ofetch",
+    "pnpm",
+    "tsup"
+  ],
+  "eslint-command.enable": false,
   "emeraldwalk.runonsave": {
     "commands": [
       {

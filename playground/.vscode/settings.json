@@ -1,6 +1,10 @@
 {
   "magic-comment.enable": true,
-  "magic-comment.userComments": [
+  "magic-comment.disabledCategories": [],
+  "magic-comment.disabledNames": [],
+  "magic-comment.ignorePaths": [],
+  "magic-comment.languages": [],
+  "magic-comment.customMagicComments": [
     {
       "name": "perfectionist-group",
       "patterns": "//\\s(@perfectionist-group)\\s",

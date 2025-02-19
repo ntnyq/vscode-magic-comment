@@ -5,10 +5,10 @@ import { typescriptProviders } from './typescript'
 import { unocssProviders } from './unocss'
 import { v8Providers } from './v8'
 import { viteProviders } from './vite'
-import type { MagicComment } from '../types/core'
+import type { MagicComment } from '../types'
 
 // @keep-sorted
-export const magicCommentsProviders: MagicComment[] = [
+export const builtInMagicComments: MagicComment[] = [
   biomeProviders,
   casePoliceProviders,
   prettierProviders,

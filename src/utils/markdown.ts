@@ -3,21 +3,24 @@
  */
 
 import { MarkdownString } from 'vscode'
+import { enabledMagicComments } from '../config'
 import { logger } from './logger'
-import type { MagicComment } from '../types/core'
 
-export function getMagicCommentMarkdown(
-  magicComment: string,
-  allMagicComments: MagicComment[] = [],
-) {
-  if (!magicComment || !allMagicComments.length) {
+/**
+ * Get markdown info by magic comment name
+ *
+ * @param key - magic comment name
+ * @returns - markdown info
+ */
+export function getMagicCommentMarkdown(key: string) {
+  if (!key || !enabledMagicComments.value.length) {
     return
   }
 
-  const matched = allMagicComments.find(mc => mc.name === magicComment)
+  const matched = enabledMagicComments.value.find(mc => mc.name === key)
 
   if (!matched) {
-    logger.error(`Magic comment '${magicComment}' not found`)
+    logger.error(`Magic comment '${key}' not found`)
     return
   }
 
