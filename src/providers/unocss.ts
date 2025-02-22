@@ -17,8 +17,11 @@ const unocssIncludeProvider = defineMagicComment({
   description: `unocss-include`,
   url: 'https://unocss.dev/guide/extracting',
   patterns: [
+    // // @unocss-include
     /\/\/\s*(@unocss-include)/g,
+    // /* @unocss-include */
     /\/\*\s*(@unocss-include)\s*\*\//g,
+    // /* @unocss-include */
     /\/\*\*[\s\S]*?(@unocss-include)[\s\S]*?\*\//g,
   ],
   category: 'unocss',

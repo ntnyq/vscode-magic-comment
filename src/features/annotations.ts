@@ -86,7 +86,7 @@ export function useAnnotations() {
           const endPos = document.positionAt(startIndex + key.length)
 
           logger.info(
-            `🔍 Found '${magicComment.name}' at ${startPos.line}:${startPos.character}\npattern: '${regexp.source}'`,
+            `🔍 Founded magic comment '${magicComment.name}' at ${startPos.line}:${startPos.character} matched pattern: '${regexp.source}'`,
           )
 
           keys.push([new Range(startPos, endPos), magicComment.name])

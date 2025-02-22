@@ -10,7 +10,10 @@ const viteIgnoreProvider = defineMagicComment({
   name: 'vite-ignore',
   description: `vite-ignore`,
   url: 'https://github.com/evanw/esbuild/releases/tag/v0.16.14',
-  patterns: [/\/\*\s*(@vite-ignore)\s*\*\//g],
+  patterns: [
+    // /* @vite-ignore */
+    /\/\*\s*(@vite-ignore)\s*\*\//g,
+  ],
   category: 'vite',
 })
 

@@ -13,7 +13,10 @@ import { defineMagicComment } from '../utils/define'
 const casePoliceIgnoreProvider = defineMagicComment({
   name: 'case-police-ignore',
   description: `case-police-ignore`,
-  patterns: /\/\*\s*@case-police-ignore\s/,
+  patterns: [
+    // // @case-police-ignore
+    /\/\/\s*(@case-police-ignore)/g,
+  ],
   url: 'https://github.com/antfu/case-police#ignores',
   category: 'case-police',
 })
