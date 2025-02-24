@@ -117,3 +117,31 @@ export const foobar = {
 // /* stylelint-disable-next-line */
 // /* stylelint-disable-next-line dummy*/
 //#endregion
+
+//#region vue
+// <!-- @vue-skip -->
+// <!-- @vue-skip dummy -->
+
+// <!-- @vue-ignore -->
+// <!-- @vue-ignore dummy -->
+
+// <!-- @vue-generic -->
+// <!-- @vue-generic dummy -->
+
+// <!-- @vue-expect-error -->
+// <!-- @vue-expect-error dummy -->
+//#endregion
+
+//#region cspell
+// cSpell:disable
+// spellchecker:disable
+// spell-checker:disable
+
+// cSpell: disable-line
+
+// cSpell: disable-next-line
+
+// cSpell:enable
+// spellchecker:enable
+// spell-checker:enable
+//#endregion

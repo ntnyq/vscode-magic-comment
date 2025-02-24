@@ -37,6 +37,7 @@
 - unocss ✅
 - v8 ✅
 - vite ✅
+- vue ✅
 - webpack ✅
 
 More comming soon.

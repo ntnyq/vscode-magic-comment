@@ -11,5 +11,6 @@
       "category": "eslint-plugin-perfectionist",
       "description": "Magic comment for for option `partitionByComment`"
     }
-  ]
+  ],
+  "cSpell.words": ["dprint"]
 }
