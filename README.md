@@ -1,11 +1,9 @@
 # vscode-magic-comment
 
 [![CI](https://github.com/ntnyq/vscode-magic-comment/workflows/CI/badge.svg)](https://github.com/ntnyq/vscode-magic-comment/actions)
-[![Marketplace](https://img.shields.io/github/v/release/ntnyq/vscode-magic-comment?include_prereleases&label=Visual%20Studio%20Marketplace)](https://marketplace.visualstudio.com/items?itemName=ntnyq.vscode-magic-comment)
-[![Install](https://img.shields.io/visual-studio-marketplace/i/ntnyq.vscode-magic-comment)](https://marketplace.visualstudio.com/items?itemName=ntnyq.vscode-magic-comment)
-[![Rating](https://img.shields.io/visual-studio-marketplace/r/ntnyq.vscode-magic-comment)](https://marketplace.visualstudio.com/items?itemName=ntnyq.vscode-magic-comment)
-[![Language](https://img.shields.io/github/languages/top/ntnyq/vscode-magic-comment)](https://github.com/ntnyq/vscode-magic-comment)
-[![License](https://img.shields.io/github/license/ntnyq/vscode-magic-comment)](https://github.com/ntnyq/vscode-magic-comment/blob/main/LICENSE)
+[![MARKETPLACE](https://img.shields.io/github/v/release/ntnyq/vscode-magic-comment?include_prereleases&label=Visual%20Studio%20Marketplace)](https://marketplace.visualstudio.com/items?itemName=ntnyq.vscode-magic-comment)
+[![LANGUAGE](https://img.shields.io/github/languages/top/ntnyq/vscode-magic-comment)](https://github.com/ntnyq/vscode-magic-comment)
+[![LICENSE](https://img.shields.io/github/license/ntnyq/vscode-magic-comment)](https://github.com/ntnyq/vscode-magic-comment/blob/main/LICENSE)
 
 > Highlight and add annotations to magic comments.
 
@@ -40,6 +38,8 @@
 - v8 ✅
 - vite ✅
 - webpack ✅
+
+More comming soon.
 
 ## Commands
 
