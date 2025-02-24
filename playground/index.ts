@@ -103,3 +103,17 @@ export const foobar = {
 
 // <!-- dprint-ignore-end -->
 //#endregion
+
+//#region stylelint
+// /* stylelint-disable */
+// /* stylelint-disable dummy*/
+
+// /* stylelint-enable */
+// /* stylelint-enable dummy*/
+
+// /* stylelint-disable-line */
+// /* stylelint-disable-line dummy*/
+
+// /* stylelint-disable-next-line */
+// /* stylelint-disable-next-line dummy*/
+//#endregion

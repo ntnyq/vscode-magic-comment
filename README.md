@@ -34,7 +34,7 @@
 - markdownlint
 - prettier ✅
 - remark
-- stylelint
+- stylelint ✅
 - typescript ✅
 - unocss ✅
 - v8 ✅

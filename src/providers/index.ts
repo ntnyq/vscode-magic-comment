@@ -4,6 +4,7 @@ import { casePoliceProviders } from './casePolice'
 import { compilerHintProviders } from './compilerHint'
 import { dprintProviders } from './dprint'
 import { prettierProviders } from './prettier'
+import { stylelintProviders } from './stylelint'
 import { typescriptProviders } from './typescript'
 import { unocssProviders } from './unocss'
 import { v8Providers } from './v8'
@@ -19,6 +20,7 @@ export const builtInMagicComments: MagicComment[] = [
   compilerHintProviders,
   dprintProviders,
   prettierProviders,
+  stylelintProviders,
   typescriptProviders,
   unocssProviders,
   v8Providers,
