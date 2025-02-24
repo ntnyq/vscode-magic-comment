@@ -57,3 +57,37 @@ export const foobar = {
 //#region case-police
 // @case-police-ignore url
 //#endregion
+
+//#region autoprefixer
+// /* autoprefixer: on */
+
+// /* autoprefixer: off */
+
+// /* autoprefixer: ignore next */
+//#endregion
+
+//#region compiler-hint
+// /* #__PURE__ */
+
+// /* @__PURE__ */
+
+// /* #__NO_SIDE_EFFECTS__ */
+
+// /* @__NO_SIDE_EFFECTS__ */
+//#endregion
+
+//#region v8
+// /* v8 ignore next */
+// /* v8 ignore next 10 */
+// /* v8 ignore next dummy */
+
+// /* v8 ignore start */
+// /* v8 ignore start dummy*/
+
+// /* v8 ignore stop */
+// /* v8 ignore stop dummy */
+//#endregion
+
+//#region webpack
+// /* webpackChunkName: dummy */
+//#endregion

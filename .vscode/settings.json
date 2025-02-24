@@ -33,7 +33,7 @@
     "pnpm",
     "tsup"
   ],
-  "eslint-command.enable": false,
+  "eslint-command.enable": true,
   "emeraldwalk.runonsave": {
     "commands": [
       {

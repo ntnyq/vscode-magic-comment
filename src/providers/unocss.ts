@@ -21,7 +21,7 @@ const unocssIncludeProvider = defineMagicComment({
     /\/\/\s*(@unocss-include)/g,
     // /* @unocss-include */
     /\/\*\s*(@unocss-include)\s*\*\//g,
-    // /* @unocss-include */
+    // /** @unocss-include */
     /\/\*\*[\s\S]*?(@unocss-include)[\s\S]*?\*\//g,
   ],
   category: 'unocss',

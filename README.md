@@ -21,22 +21,24 @@
 
 > Sorted alphabetically
 
-- autoprefixer
-- biome
+- autoprefixer ✅
+- biome ✅
 - c8
-- case-police
-- compiler
-- cspell
+- case-police ✅
+- compiler-hint ✅
+- cspell ✅
 - eslint
 - istanbul
 - jshint
 - markdownlint
-- prettier
+- prettier ✅
 - remark
 - stylelint
-- typescript
-- unocss
-- v8
+- typescript ✅
+- unocss ✅
+- v8 ✅
+- vite ✅
+- webpack ✅
 
 ## Commands
 

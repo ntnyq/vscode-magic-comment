@@ -3,7 +3,10 @@ import { defineMagicComment } from '../utils/define'
 const webpackChunkNameProvider = defineMagicComment({
   name: 'webpack-chunk-name',
   description: `webpack-chunk-name`,
-  patterns: /\/\*\s*webpackChunkName\s*\*\//,
+  patterns: [
+    // /* webpackChunkName: dummy */
+    /\/\*\s(webpackChunkName):\s[\s\S]+?\*\//g,
+  ],
   category: 'webpack',
 })
 
