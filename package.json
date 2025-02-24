@@ -4,7 +4,7 @@
   "displayName": "VSCode Magic Comment",
   "preview": true,
   "type": "commonjs",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "private": true,
   "packageManager": "pnpm@10.4.1",
   "description": "Add annotations to magic comments",
