@@ -91,3 +91,15 @@ export const foobar = {
 //#region webpack
 // /* webpackChunkName: dummy */
 //#endregion
+
+//#region dprint
+// // dprint-ignore-file
+
+// /* dprint-ignore */
+
+// <!-- dprint-ignore -->
+
+// <!-- dprint-ignore-start -->
+
+// <!-- dprint-ignore-end -->
+//#endregion

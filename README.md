@@ -27,6 +27,7 @@
 - case-police ✅
 - compiler-hint ✅
 - cspell ✅
+- dprint ✅
 - eslint
 - istanbul
 - jshint

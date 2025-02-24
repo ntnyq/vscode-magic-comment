@@ -2,6 +2,14 @@
  * @file v8
  *
  * @see {@link https://github.com/istanbuljs/v8-to-istanbul/blob/master/lib/source.js}
+ *
+ * @example
+ *
+ * ```md
+ * - v8 ignore next
+ * - v8 ignore start
+ * - v8 ignore stop
+ * ```
  */
 
 import { defineMagicComment } from '../utils/define'

@@ -2,6 +2,7 @@ import { autoprefixerProviders } from './autoprefixer'
 import { biomeProviders } from './biome'
 import { casePoliceProviders } from './casePolice'
 import { compilerHintProviders } from './compilerHint'
+import { dprintProviders } from './dprint'
 import { prettierProviders } from './prettier'
 import { typescriptProviders } from './typescript'
 import { unocssProviders } from './unocss'
@@ -16,6 +17,7 @@ export const builtInMagicComments: MagicComment[] = [
   biomeProviders,
   casePoliceProviders,
   compilerHintProviders,
+  dprintProviders,
   prettierProviders,
   typescriptProviders,
   unocssProviders,
