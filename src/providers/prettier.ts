@@ -17,13 +17,15 @@ import { defineMagicComment } from '../utils/define'
 
 const prettierIgnoreProvider = defineMagicComment({
   name: 'prettier-ignore',
-  description: `prettier-ignore`,
+  description: 'prettier-ignore',
   url: 'https://prettier.io/docs/ignore.html',
   patterns: [
     // # prettier-ignore
     /#\s*(prettier-ignore)/g,
     // // prettier-ignore
     /\/\/\s*(prettier-ignore)/g,
+    // /* prettier-ignore */
+    /\/\*\s*(prettier-ignore)\s*\*\//g,
     // <!-- prettier-ignore -->
     /<!--\s*(prettier-ignore)\s*-->/g,
   ],
