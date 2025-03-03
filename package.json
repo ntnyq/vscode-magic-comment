@@ -44,7 +44,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@ntnyq/utils": "^0.6.0",
+    "@ntnyq/utils": "^0.6.1",
     "reactive-vscode": "^0.2.13"
   },
   "devDependencies": {
@@ -58,7 +58,7 @@
     "husky": "^9.1.7",
     "nano-staged": "^0.8.0",
     "npm-run-all2": "^7.0.2",
-    "prettier": "^3.5.2",
+    "prettier": "^3.5.3",
     "tsup": "^8.4.0",
     "typescript": "^5.8.2",
     "vscode-ext-gen": "^1.0.2"
