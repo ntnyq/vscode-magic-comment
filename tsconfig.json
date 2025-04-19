@@ -1,11 +1,13 @@
 {
   "compilerOptions": {
-    "target": "ES2022",
+    "target": "ESNext",
     "lib": ["ESnext"],
     "module": "ESNext",
     "moduleResolution": "node",
     "types": ["node"],
     "resolveJsonModule": true,
+    "erasableSyntaxOnly": true,
+    "libReplacement": false,
     "sourceMap": true,
     "isolatedModules": true,
     "verbatimModuleSyntax": true,

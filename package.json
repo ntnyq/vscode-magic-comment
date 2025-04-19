@@ -6,7 +6,7 @@
   "type": "commonjs",
   "version": "0.0.6",
   "private": true,
-  "packageManager": "pnpm@10.5.2",
+  "packageManager": "pnpm@10.8.1",
   "description": "Add annotations to magic comments",
   "keywords": [],
   "license": "MIT",
@@ -33,7 +33,7 @@
     "build": "tsup",
     "dev": "NODE_ENV=development tsup --watch",
     "generate:meta": "vscode-ext-gen --output src/meta.ts --scope magic-comment",
-    "lint": "eslint .",
+    "lint": "eslint",
     "pack": "vsce package --no-dependencies",
     "prepare": "husky",
     "release": "run-s release:check release:version release:publish",
@@ -44,23 +44,23 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@ntnyq/utils": "^0.6.1",
-    "reactive-vscode": "^0.2.13"
+    "@ntnyq/utils": "^0.6.4",
+    "reactive-vscode": "^0.2.14"
   },
   "devDependencies": {
-    "@ntnyq/eslint-config": "^4.0.0-beta.8",
+    "@ntnyq/eslint-config": "^4.0.4",
     "@ntnyq/prettier-config": "^2.0.0",
-    "@types/node": "^22.13.8",
-    "@types/vscode": "^1.97.0",
-    "@vscode/vsce": "^3.2.2",
-    "bumpp": "^10.0.3",
-    "eslint": "^9.21.0",
+    "@types/node": "^22.14.1",
+    "@types/vscode": "^1.99.1",
+    "@vscode/vsce": "^3.3.2",
+    "bumpp": "^10.1.0",
+    "eslint": "^9.25.0",
     "husky": "^9.1.7",
     "nano-staged": "^0.8.0",
     "npm-run-all2": "^8.0.1",
     "prettier": "^3.5.3",
     "tsup": "^8.4.0",
-    "typescript": "^5.8.2",
+    "typescript": "^5.8.3",
     "vscode-ext-gen": "^1.0.2"
   },
   "activationEvents": [
@@ -198,17 +198,7 @@
     "Other"
   ],
   "engines": {
-    "vscode": "^1.97.2"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@vscode/vsce-sign",
-      "esbuild",
-      "keytar"
-    ],
-    "overrides": {
-      "esbuild": "^0.25.0"
-    }
+    "vscode": "^1.99.1"
   },
   "nano-staged": {
     "*.{js,ts,mjs,cjs,md,yml,yaml,json}": "eslint --fix"

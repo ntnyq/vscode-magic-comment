@@ -11,8 +11,9 @@
   },
   "eslint.validate": [
     "vue",
-    "json",
+    "yaml",
     "toml",
+    "json",
     "jsonc",
     "json5",
     "markdown",
@@ -27,6 +28,7 @@
     "bumpp",
     "changelogithub",
     "dprint",
+    "esbuild",
     "forof",
     "hreg",
     "npmrc",
