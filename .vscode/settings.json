@@ -34,7 +34,8 @@
     "npmrc",
     "ofetch",
     "pnpm",
-    "tsup"
+    "tsdown",
+    "unrs"
   ],
   "eslint-command.enable": true,
   "emeraldwalk.runonsave": {

@@ -30,8 +30,8 @@
     "res/*"
   ],
   "scripts": {
-    "build": "tsup",
-    "dev": "NODE_ENV=development tsup --watch",
+    "build": "tsdown",
+    "dev": "NODE_ENV=development tsdown --watch",
     "generate:meta": "vscode-ext-gen --output src/meta.ts --scope magic-comment",
     "lint": "eslint",
     "pack": "vsce package --no-dependencies",
@@ -48,18 +48,18 @@
     "reactive-vscode": "^0.2.14"
   },
   "devDependencies": {
-    "@ntnyq/eslint-config": "^4.0.4",
+    "@ntnyq/eslint-config": "^4.2.0",
     "@ntnyq/prettier-config": "^2.0.0",
-    "@types/node": "^22.14.1",
+    "@types/node": "^22.15.16",
     "@types/vscode": "^1.99.1",
     "@vscode/vsce": "^3.3.2",
     "bumpp": "^10.1.0",
-    "eslint": "^9.25.0",
+    "eslint": "^9.26.0",
     "husky": "^9.1.7",
     "nano-staged": "^0.8.0",
     "npm-run-all2": "^8.0.1",
     "prettier": "^3.5.3",
-    "tsup": "^8.4.0",
+    "tsdown": "^0.11.1",
     "typescript": "^5.8.3",
     "vscode-ext-gen": "^1.0.2"
   },

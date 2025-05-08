@@ -1,16 +1,18 @@
 import process from 'node:process'
-import { defineConfig } from 'tsup'
+import { defineConfig } from 'tsdown'
 import pkg from './package.json'
+
+const isDev = () => process.env.NODE_ENV === 'development'
 
 export default defineConfig({
   clean: true,
   entry: ['src/index.ts'],
   external: ['vscode'],
   format: 'cjs',
-  sourcemap: process.env.NODE_ENV === 'development',
-  env: {
-    NODE_ENV: process.env.NODE_ENV || 'production',
-  },
+  minify: !isDev(),
+  shims: true,
+  sourcemap: isDev(),
+  watch: isDev(),
   noExternal: [
     // Bundle all dependencies
     ...Object.keys(pkg.dependencies || {}),
