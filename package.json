@@ -3,10 +3,10 @@
   "name": "vscode-magic-comment",
   "displayName": "VSCode Magic Comment",
   "preview": true,
-  "type": "commonjs",
+  "type": "module",
   "version": "0.0.6",
   "private": true,
-  "packageManager": "pnpm@10.8.1",
+  "packageManager": "pnpm@10.11.0",
   "description": "Add annotations to magic comments",
   "keywords": [],
   "license": "MIT",
@@ -44,22 +44,22 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@ntnyq/utils": "^0.6.4",
-    "reactive-vscode": "^0.2.14"
+    "@ntnyq/utils": "^0.7.0",
+    "reactive-vscode": "^0.2.17"
   },
   "devDependencies": {
-    "@ntnyq/eslint-config": "^4.2.0",
-    "@ntnyq/prettier-config": "^2.0.0",
-    "@types/node": "^22.15.16",
-    "@types/vscode": "^1.99.1",
-    "@vscode/vsce": "^3.3.2",
-    "bumpp": "^10.1.0",
-    "eslint": "^9.26.0",
+    "@ntnyq/eslint-config": "^4.3.0",
+    "@ntnyq/prettier-config": "^2.1.0",
+    "@types/node": "^22.15.19",
+    "@types/vscode": "^1.100.0",
+    "@vscode/vsce": "^3.4.1",
+    "bumpp": "^10.1.1",
+    "eslint": "^9.27.0",
     "husky": "^9.1.7",
     "nano-staged": "^0.8.0",
-    "npm-run-all2": "^8.0.1",
+    "npm-run-all2": "^8.0.2",
     "prettier": "^3.5.3",
-    "tsdown": "^0.11.1",
+    "tsdown": "^0.11.12",
     "typescript": "^5.8.3",
     "vscode-ext-gen": "^1.0.2"
   },
@@ -198,7 +198,7 @@
     "Other"
   ],
   "engines": {
-    "vscode": "^1.99.1"
+    "vscode": "^1.100.0"
   },
   "nano-staged": {
     "*.{js,ts,mjs,cjs,md,yml,yaml,json}": "eslint --fix"
