@@ -8,3 +8,5 @@ export const DEFAULT_LANGUAGE_IDS: string[] = [
   'javascriptreact',
   'typescriptreact',
 ]
+
+export const EXCLUDE_LANGUAGE_IDS: string[] = ['Log']

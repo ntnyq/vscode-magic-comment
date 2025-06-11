@@ -13,7 +13,7 @@ import {
   enabledMagicComments,
   getSupportedLanguageIds,
 } from '../config'
-import { DEFAULT_ANNOTATION } from '../constants'
+import { DEFAULT_ANNOTATION, EXCLUDE_LANGUAGE_IDS } from '../constants'
 import { getMagicCommentMarkdown, isTruthy, logger } from '../utils'
 import type { DecorationMatch } from '../types'
 
@@ -48,6 +48,8 @@ export function useAnnotations() {
       || !languageId.value
       // no text
       || !text.value
+      // exclude language ids
+      || EXCLUDE_LANGUAGE_IDS.includes(languageId.value)
     ) {
       decorations.value = []
       return
