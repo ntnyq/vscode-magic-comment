@@ -13,7 +13,7 @@ import {
   enabledMagicComments,
   getSupportedLanguageIds,
 } from '../config'
-import { DEFAULT_ANNOTATION } from '../constants'
+import { DEFAULT_ANNOTATION, EXCLUDE_LANGUAGE_IDS } from '../constants'
 import { getMagicCommentMarkdown, isTruthy, logger } from '../utils'
 import type { DecorationMatch } from '../types'
 
@@ -48,6 +48,8 @@ export function useAnnotations() {
       || !languageId.value
       // no text
       || !text.value
+      // exclude language ids
+      || EXCLUDE_LANGUAGE_IDS.includes(languageId.value)
     ) {
       decorations.value = []
       return
@@ -69,7 +71,9 @@ export function useAnnotations() {
 
       patterns.forEach(regexp => {
         // required global flag
-        if (!regexp.global) return
+        if (!regexp.global) {
+          return
+        }
 
         let match: RegExpExecArray | null = null
 
@@ -78,7 +82,9 @@ export function useAnnotations() {
 
         while ((match = regexp.exec(text.value!))) {
           const key = match[1]
-          if (!key) continue
+          if (!key) {
+            continue
+          }
 
           const startIndex = match.index + match[0].indexOf(key)
 

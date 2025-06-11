@@ -1,12 +1,7 @@
 packages:
-  - .
   - playground
-
-overrides:
-  esbuild: ^0.25.4
 
 onlyBuiltDependencies:
   - '@vscode/vsce-sign'
-  - esbuild
   - keytar
   - unrs-resolver
