@@ -6,7 +6,7 @@
   "type": "module",
   "version": "0.0.6",
   "private": true,
-  "packageManager": "pnpm@10.13.1",
+  "packageManager": "pnpm@10.14.0",
   "description": "Add annotations to magic comments",
   "keywords": [],
   "license": "MIT",
@@ -44,7 +44,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@ntnyq/utils": "^0.8.1",
+    "@ntnyq/utils": "^0.9.0",
     "reactive-vscode": "^0.3.1"
   },
   "devDependencies": {
@@ -53,14 +53,14 @@
     "@types/node": "^24.1.0",
     "@types/vscode": "^1.102.0",
     "@vscode/vsce": "^3.6.0",
-    "bumpp": "^10.2.0",
+    "bumpp": "^10.2.2",
     "eslint": "^9.32.0",
     "husky": "^9.1.7",
     "nano-staged": "^0.8.0",
     "npm-run-all2": "^8.0.4",
     "prettier": "^3.6.2",
-    "tsdown": "^0.13.0",
-    "typescript": "^5.8.3",
+    "tsdown": "^0.13.2",
+    "typescript": "^5.9.2",
     "vscode-ext-gen": "^1.1.0"
   },
   "activationEvents": [
@@ -198,7 +198,7 @@
     "Other"
   ],
   "engines": {
-    "vscode": "^1.102.2"
+    "vscode": "^1.102.3"
   },
   "nano-staged": {
     "*.{js,ts,mjs,cjs,md,yml,yaml,json}": "eslint --fix"
