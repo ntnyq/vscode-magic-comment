@@ -1,20 +1,17 @@
 import {
   computed,
-  defineConfigObject,
+  defineConfig,
   shallowReactive,
   shallowRef,
 } from 'reactive-vscode'
 import { languages, window } from 'vscode'
 import { DEFAULT_LANGUAGE_IDS } from './constants'
 import { scopedConfigs } from './meta'
-import { builtInMagicComments } from './providers'
 import type { ScopedConfigKeyTypeMap } from './meta'
+import { builtInMagicComments } from './providers'
 import type { MagicComment } from './types'
 
-export const config = defineConfigObject<ScopedConfigKeyTypeMap>(
-  scopedConfigs.scope,
-  scopedConfigs.defaults,
-)
+export const config = defineConfig<ScopedConfigKeyTypeMap>(scopedConfigs.scope)
 
 /**
  * BuiltIn magic comments names

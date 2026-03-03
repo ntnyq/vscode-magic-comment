@@ -5,6 +5,7 @@
 
 // @ts-ignore dummy
 
+// oxlint-disable-next-line no-const-assign
 export const num = 25
 
 // @ts-expect-error dummy

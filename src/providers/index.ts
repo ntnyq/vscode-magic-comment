@@ -1,3 +1,4 @@
+import type { MagicComment } from '../types'
 import { autoprefixerProviders } from './autoprefixer'
 import { biomeProviders } from './biome'
 import { casePoliceProviders } from './casePolice'
@@ -12,7 +13,6 @@ import { v8Providers } from './v8'
 import { viteProviders } from './vite'
 import { vueProviders } from './vue'
 import { webpackProviders } from './webpack'
-import type { MagicComment } from '../types'
 
 // @keep-sorted
 export const builtInMagicComments: MagicComment[] = [

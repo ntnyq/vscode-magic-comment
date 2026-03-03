@@ -1,0 +1,74 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": [
+    "eslint",
+    // "import",
+    // "jsdoc",
+    "node"
+    // "promise",
+    // "oxc",
+    // "typescript",
+    // "unicorn",
+  ],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "pedantic": "warn",
+    "perf": "warn",
+    "style": "warn",
+    "restriction": "warn"
+  },
+  "ignorePatterns": [
+    "**/dist/**",
+    "**/node_modules/**",
+    "**/tests/fixtures/**",
+    "src/meta.ts"
+  ],
+  "rules": {
+    "capitalized-comments": "off",
+    "sort-keys": "off",
+    "sort-imports": "off",
+    "no-continue": "off",
+    "no-ternary": "off",
+    "no-inline-comments": "off",
+    "no-magic-numbers": "off",
+    "require-await": "off",
+    "prefer-destructuring": "off",
+    "id-length": [
+      "warn",
+      {
+        "min": 2,
+        "max": 50,
+        "exceptions": ["a", "b", "i", "j", "v", "x", "y", "T", "_", "$"]
+      }
+    ],
+    "func-style": ["warn", "declaration", { "allowArrowFunctions": true }],
+    "max-statements": ["warn", 50],
+    "max-lines-per-function": ["warn", 200],
+    "no-duplicate-imports": [
+      "warn",
+      { "allowSeparateTypeImports": true, "includeExports": true }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["scripts/**/*.{js,ts}"],
+      "rules": {
+        "no-console": "off"
+      }
+    },
+    {
+      "files": ["*.config.{ts,mjs}"],
+      "rules": {}
+    },
+    {
+      "files": ["*.d.ts"],
+      "rules": {
+        // to extend existing modules, import/export must not appear in declaration files at top level
+        "import/unambiguous": "off",
+        // we need `export {}` to convert a file to a module
+        "unicorn/require-module-specifiers": "off"
+      }
+    }
+  ]
+}

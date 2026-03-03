@@ -12,11 +12,11 @@ export const extensionId = `${publisher}.${name}`
 /**
  * Type union of all commands
  */
-export type CommandKey = 
+export type CommandKey =
   | "magic-comment.getLanguageConfig"
 
 /**
- * Commands map registed by `ntnyq.vscode-magic-comment`
+ * Commands map registered by `ntnyq.vscode-magic-comment`
  */
 export const commands = {
   /**
@@ -29,7 +29,7 @@ export const commands = {
 /**
  * Type union of all configs
  */
-export type ConfigKey = 
+export type ConfigKey =
   | "magic-comment.annotation"
   | "magic-comment.customMagicComments"
   | "magic-comment.disabledCategories"

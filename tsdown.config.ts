@@ -7,14 +7,18 @@ const isDev = () => process.env.NODE_ENV === 'development'
 export default defineConfig({
   clean: true,
   entry: ['src/index.ts'],
-  external: ['vscode'],
   minify: !isDev(),
   platform: 'node',
   shims: true,
   sourcemap: isDev(),
   watch: isDev(),
-  noExternal: [
-    // Bundle all dependencies
-    ...Object.keys(pkg.dependencies || {}),
-  ],
+  deps: {
+    onlyAllowBundle: [
+      '@reactive-vscode/reactivity',
+      'reactive-vscode',
+      '@ntnyq/utils',
+    ],
+    neverBundle: ['vscode'],
+    alwaysBundle: Object.keys(pkg.dependencies),
+  },
 })

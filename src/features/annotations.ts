@@ -2,7 +2,7 @@ import { isString, toArray } from '@ntnyq/utils'
 import {
   computed,
   shallowRef,
-  useActiveEditorDecorations,
+  useEditorDecorations,
   useActiveTextEditor,
   useDocumentText,
   watchEffect,
@@ -14,8 +14,8 @@ import {
   getSupportedLanguageIds,
 } from '../config'
 import { DEFAULT_ANNOTATION, EXCLUDE_LANGUAGE_IDS } from '../constants'
-import { getMagicCommentMarkdown, isTruthy, logger } from '../utils'
 import type { DecorationMatch } from '../types'
+import { getMagicCommentMarkdown, isTruthy, logger } from '../utils'
 
 export function useAnnotations() {
   const BuiltInDecoration = window.createTextEditorDecorationType({
@@ -23,8 +23,8 @@ export function useAnnotations() {
     color: config.annotation?.color || DEFAULT_ANNOTATION.color,
     after: {
       contentText:
-        config.annotation?.after?.contentText
-        || DEFAULT_ANNOTATION.after.contentText,
+        config.annotation?.after?.contentText ||
+        DEFAULT_ANNOTATION.after.contentText,
       margin:
         config.annotation?.after?.margin || DEFAULT_ANNOTATION.after.margin,
     },
@@ -37,19 +37,19 @@ export function useAnnotations() {
 
   const supportedLanguages = shallowRef<string[]>([])
 
-  useActiveEditorDecorations(BuiltInDecoration, decorations)
+  useEditorDecorations(editor, BuiltInDecoration, decorations)
 
   // Calculate decorations
   watchEffect(async () => {
     if (
       // no editor instance
-      !editor.value
+      !editor.value ||
       // no language id
-      || !languageId.value
+      !languageId.value ||
       // no text
-      || !text.value
+      !text.value ||
       // exclude language ids
-      || EXCLUDE_LANGUAGE_IDS.includes(languageId.value)
+      EXCLUDE_LANGUAGE_IDS.includes(languageId.value)
     ) {
       decorations.value = []
       return
