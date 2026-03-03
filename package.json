@@ -202,7 +202,7 @@
   "icon": "./res/logo.png",
   "preview": true,
   "engines": {
-    "vscode": "^1.109.0"
+    "vscode": "^1.109.5"
   },
   "packageManager": "pnpm@10.30.3"
 }
