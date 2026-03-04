@@ -7,7 +7,7 @@
   "editor.codeActionsOnSave": {
     "source.eslint.fixAll": "explicit"
   },
-  "typescript.experimental.useTsgo": true,
+  "js/ts.experimental.useTsgo": true,
   "cSpell.allowCompoundWords": true,
   "cSpell.useGitignore": true,
   "cSpell.words": [

@@ -4,4 +4,3 @@ packages:
 onlyBuiltDependencies:
   - '@vscode/vsce-sign'
   - keytar
-  - unrs-resolver

@@ -13,47 +13,34 @@
  * ```
  */
 
-import { defineMagicComment } from '../utils/define'
+import { createCommentPatterns, defineMagicComment } from '../utils/define'
 
 const tsCheckProvider = defineMagicComment({
   name: 'ts-check',
   description: `ts-check`,
   url: 'https://www.typescriptlang.org/docs/handbook/intro-to-js-ts.html#ts-check',
-  // \/\/\s*@ts-check|\/\*[\s\S]*?@ts-check[\s\S]*?\*\/
-  patterns: [
-    // // @ts-check
-    /\/\/\s*(@ts-check)/g,
-  ],
+  patterns: createCommentPatterns('@ts-check', { types: ['line'] }),
   category: 'typescript',
 })
 
 const tsNocheckProvider = defineMagicComment({
   name: 'ts-nocheck',
   description: `ts-nocheck`,
-  patterns: [
-    // // @ts-nocheck
-    /\/\/\s*(@ts-nocheck)/g,
-  ],
+  patterns: createCommentPatterns('@ts-nocheck', { types: ['line'] }),
   category: 'typescript',
 })
 
 const tsIgnoreProvider = defineMagicComment({
   name: 'ts-ignore',
   description: `ts-ignore`,
-  patterns: [
-    // // @ts-ignore
-    /\/\/\s*(@ts-ignore)/g,
-  ],
+  patterns: createCommentPatterns('@ts-ignore', { types: ['line'] }),
   category: 'typescript',
 })
 
 const tsExpectErrorProvider = defineMagicComment({
   name: 'ts-expect-error',
   description: `ts-expect-error`,
-  patterns: [
-    // // @ts-expect-error
-    /\/\/\s*(@ts-expect-error)/g,
-  ],
+  patterns: createCommentPatterns('@ts-expect-error', { types: ['line'] }),
   category: 'typescript',
 })
 

@@ -1,26 +1,22 @@
 /**
  * @file vite
  *
- * @see {@link https://github.com/evanw/esbuild/issues/2721#issuecomment-1340519923}
- *
+ * @see {@link https://github.com/evanw/esbuild/releases/tag/v0.16.14}
  *
  * @example
  *
  * ```md
- * - vite-ignore
+ * - @vite-ignore
  * ```
  */
 
-import { defineMagicComment } from '../utils/define'
+import { createCommentPatterns, defineMagicComment } from '../utils/define'
 
 const viteIgnoreProvider = defineMagicComment({
   name: 'vite-ignore',
   description: `vite-ignore`,
   url: 'https://github.com/evanw/esbuild/releases/tag/v0.16.14',
-  patterns: [
-    // /* @vite-ignore */
-    /\/\*\s*(@vite-ignore)\s*\*\//g,
-  ],
+  patterns: createCommentPatterns('@vite-ignore', { types: ['block'] }),
   category: 'vite',
 })
 

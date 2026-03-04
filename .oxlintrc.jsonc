@@ -4,7 +4,7 @@
     "eslint",
     // "import",
     // "jsdoc",
-    "node"
+    "node",
     // "promise",
     // "oxc",
     // "typescript",
@@ -16,14 +16,9 @@
     "pedantic": "warn",
     "perf": "warn",
     "style": "warn",
-    "restriction": "warn"
+    "restriction": "warn",
   },
-  "ignorePatterns": [
-    "**/dist/**",
-    "**/node_modules/**",
-    "**/tests/fixtures/**",
-    "src/meta.ts"
-  ],
+  "ignorePatterns": ["**/dist/**", "**/node_modules/**", "src/meta.ts"],
   "rules": {
     "capitalized-comments": "off",
     "sort-keys": "off",
@@ -39,27 +34,29 @@
       {
         "min": 2,
         "max": 50,
-        "exceptions": ["a", "b", "i", "j", "v", "x", "y", "T", "_", "$"]
-      }
+        "exceptions": ["a", "b", "i", "j", "v", "x", "y", "T", "_", "$"],
+      },
     ],
     "func-style": ["warn", "declaration", { "allowArrowFunctions": true }],
     "max-statements": ["warn", 50],
     "max-lines-per-function": ["warn", 200],
     "no-duplicate-imports": [
       "warn",
-      { "allowSeparateTypeImports": true, "includeExports": true }
-    ]
+      { "allowSeparateTypeImports": true, "includeExports": true },
+    ],
   },
   "overrides": [
     {
       "files": ["scripts/**/*.{js,ts}"],
       "rules": {
-        "no-console": "off"
-      }
+        "no-console": "off",
+      },
     },
     {
       "files": ["*.config.{ts,mjs}"],
-      "rules": {}
+      "rules": {
+        "sort-keys": "warn",
+      },
     },
     {
       "files": ["*.d.ts"],
@@ -67,8 +64,8 @@
         // to extend existing modules, import/export must not appear in declaration files at top level
         "import/unambiguous": "off",
         // we need `export {}` to convert a file to a module
-        "unicorn/require-module-specifiers": "off"
-      }
-    }
-  ]
+        "unicorn/require-module-specifiers": "off",
+      },
+    },
+  ],
 }

@@ -21,17 +21,11 @@
 
 - autoprefixer ✅
 - biome ✅
-- c8
 - case-police ✅
 - compiler-hint ✅
 - cspell ✅
 - dprint ✅
-- eslint
-- istanbul
-- jshint
-- markdownlint
 - prettier ✅
-- remark
 - stylelint ✅
 - typescript ✅
 - unocss ✅

@@ -13,22 +13,15 @@
  * ```
  */
 
-import { defineMagicComment } from '../utils/define'
+import { createCommentPatterns, defineMagicComment } from '../utils/define'
 
 const prettierIgnoreProvider = defineMagicComment({
   name: 'prettier-ignore',
   description: 'prettier-ignore',
   url: 'https://prettier.io/docs/ignore.html',
-  patterns: [
-    // # prettier-ignore
-    /#\s*(prettier-ignore)/g,
-    // // prettier-ignore
-    /\/\/\s*(prettier-ignore)/g,
-    // /* prettier-ignore */
-    /\/\*\s*(prettier-ignore)\s*\*\//g,
-    // <!-- prettier-ignore -->
-    /<!--\s*(prettier-ignore)\s*-->/g,
-  ],
+  patterns: createCommentPatterns('prettier-ignore', {
+    types: ['hash', 'line', 'block', 'html'],
+  }),
   category: 'prettier',
 })
 
@@ -36,10 +29,9 @@ const prettierIgnoreAttributeProvider = defineMagicComment({
   name: 'prettier-ignore-attribute',
   description: `prettier-ignore-attribute`,
   url: 'https://prettier.io/docs/ignore.html',
-  patterns: [
-    // <!-- prettier-ignore-attribute -->
-    /<!--\s*(prettier-ignore-attribute)\s*-->/g,
-  ],
+  patterns: createCommentPatterns('prettier-ignore-attribute', {
+    types: ['html'],
+  }),
   category: 'prettier',
 })
 
@@ -47,10 +39,9 @@ const prettierIgnoreStartProvider = defineMagicComment({
   name: 'prettier-ignore-start',
   description: `prettier-ignore-start`,
   url: 'https://prettier.io/docs/ignore.html',
-  patterns: [
-    // <!-- prettier-ignore-start -->
-    /<!--\s*(prettier-ignore-start)\s*-->/g,
-  ],
+  patterns: createCommentPatterns('prettier-ignore-start', {
+    types: ['html'],
+  }),
   category: 'prettier',
 })
 
@@ -58,10 +49,9 @@ const prettierIgnoreEndProvider = defineMagicComment({
   name: 'prettier-ignore-end',
   description: `prettier-ignore-end`,
   url: 'https://prettier.io/docs/ignore.html',
-  patterns: [
-    // <!-- prettier-ignore-end -->
-    /<!--\s*(prettier-ignore-end)\s*-->/g,
-  ],
+  patterns: createCommentPatterns('prettier-ignore-end', {
+    types: ['html'],
+  }),
   category: 'prettier',
 })
 

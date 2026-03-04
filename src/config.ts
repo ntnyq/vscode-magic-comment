@@ -1,8 +1,8 @@
 import {
   computed,
   defineConfig,
-  shallowReactive,
   shallowRef,
+  watchEffect,
 } from 'reactive-vscode'
 import { languages, window } from 'vscode'
 import { DEFAULT_LANGUAGE_IDS } from './constants'
@@ -27,19 +27,24 @@ export const customMagicComments = shallowRef<MagicComment[]>([])
  * Load user customized magic comments
  */
 export function useCustomMagicComments() {
-  const result = shallowReactive(new Map<string, MagicComment>())
+  watchEffect(() => {
+    const seen = new Set<string>()
+    const result: MagicComment[] = []
 
-  config.customMagicComments.forEach(item => {
-    if (builtInMagicCommentsNames.has(item.name)) {
-      return
-    }
-    result.set(item.name, {
-      ...item,
-      patterns: item.patterns as string[],
+    config.customMagicComments.forEach(item => {
+      if (builtInMagicCommentsNames.has(item.name) || seen.has(item.name)) {
+        return
+      }
+
+      seen.add(item.name)
+      result.push({
+        ...item,
+        patterns: item.patterns as string | string[],
+      })
     })
-  })
 
-  customMagicComments.value = Array.from(result.values())
+    customMagicComments.value = result
+  })
 }
 
 /**

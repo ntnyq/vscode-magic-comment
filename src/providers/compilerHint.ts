@@ -1,29 +1,32 @@
 /**
- * @file compiler
+ * @file compiler hints
  *
  * @see {@link https://github.com/javascript-compiler-hints/compiler-notations-spec}
  *
  * @example
  *
  * ```md
- * - #__NO_SIDE_EFFECTS__
- * - @__NO_SIDE_EFFECTS__
  * - #__PURE__
  * - @__PURE__
+ * - #__NO_SIDE_EFFECTS__
+ * - @__NO_SIDE_EFFECTS__
  * ```
  */
 
-import { defineMagicComment } from '../utils'
+import { createCommentPatterns, defineMagicComment } from '../utils/define'
 
 const pureNotationProvider = defineMagicComment({
   name: 'pure-notation',
   description: `pure-notation`,
-  patterns: [
-    // /* #__PURE__ */
-    /\/\*\s(#__PURE__)\s\*\//g,
-    // /* @__PURE__ */
-    /\/\*\s(@__PURE__)\s\*\//g,
-  ],
+  patterns: createCommentPatterns('#__PURE__', { types: ['block'] }),
+  url: 'https://github.com/javascript-compiler-hints/compiler-notations-spec',
+  category: 'compiler-hint',
+})
+
+const atPureNotationProvider = defineMagicComment({
+  name: 'at-pure-notation',
+  description: `at-pure-notation`,
+  patterns: createCommentPatterns('@__PURE__', { types: ['block'] }),
   url: 'https://github.com/javascript-compiler-hints/compiler-notations-spec',
   category: 'compiler-hint',
 })
@@ -31,18 +34,23 @@ const pureNotationProvider = defineMagicComment({
 const noSideEffectsNotationProvider = defineMagicComment({
   name: 'no-side-effects-notation',
   description: `no-side-effects-notation`,
-  patterns: [
-    // /* #__NO_SIDE_EFFECTS__ */
-    /\/\*\s(#__NO_SIDE_EFFECTS__)\s\*\//g,
-    // /* @__NO_SIDE_EFFECTS__ */
-    /\/\*\s(@__NO_SIDE_EFFECTS__)\s\*\//g,
-  ],
+  patterns: createCommentPatterns('#__NO_SIDE_EFFECTS__', { types: ['block'] }),
+  url: 'https://github.com/javascript-compiler-hints/compiler-notations-spec',
+  category: 'compiler-hint',
+})
+
+const atNoSideEffectsNotationProvider = defineMagicComment({
+  name: 'at-no-side-effects-notation',
+  description: `at-no-side-effects-notation`,
+  patterns: createCommentPatterns('@__NO_SIDE_EFFECTS__', { types: ['block'] }),
   url: 'https://github.com/javascript-compiler-hints/compiler-notations-spec',
   category: 'compiler-hint',
 })
 
 // @keep-sorted
 export const compilerHintProviders = [
+  atNoSideEffectsNotationProvider,
+  atPureNotationProvider,
   noSideEffectsNotationProvider,
   pureNotationProvider,
 ]

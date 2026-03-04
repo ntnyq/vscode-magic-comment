@@ -1,25 +1,26 @@
 /**
  * @file autoprefixer
  *
+ * @see {@link https://github.com/postcss/autoprefixer#control-comments}
+ *
  * @example
  *
  * ```md
- * - \/* autoprefixer: on *\/
- * - \/* autoprefixer: off *\/
- * - \/* autoprefixer: ignore next *\/
- * - \/* autoprefixer: grid: autoplace|no-autoplace|off *\/
+ * - /* autoprefixer: on *\/
+ * - /* autoprefixer: off *\/
+ * - /* autoprefixer: ignore next *\/
+ * - /* autoprefixer grid: autoplace *\/
+ * - /* autoprefixer grid: no-autoplace *\/
+ * - /* autoprefixer grid: off *\/
  * ```
  */
 
-import { defineMagicComment } from '../utils/define'
+import { createCommentPatterns, defineMagicComment } from '../utils/define'
 
 const autoprefixerOnProvider = defineMagicComment({
   name: 'autoprefixer-on',
   description: `autoprefixer-on`,
-  patterns: [
-    // /* autoprefixer: on */
-    /\/\*\s(autoprefixer:\son)\s\*\//g,
-  ],
+  patterns: createCommentPatterns('autoprefixer: on', { types: ['block'] }),
   url: `https://github.com/postcss/autoprefixer#control-comments`,
   category: 'autoprefixer',
 })
@@ -27,10 +28,7 @@ const autoprefixerOnProvider = defineMagicComment({
 const autoprefixerOffProvider = defineMagicComment({
   name: 'autoprefixer-off',
   description: `autoprefixer-off`,
-  patterns: [
-    // /* autoprefixer: off */
-    /\/\*\s(autoprefixer:\soff)\s\*\//g,
-  ],
+  patterns: createCommentPatterns('autoprefixer: off', { types: ['block'] }),
   url: `https://github.com/postcss/autoprefixer#control-comments`,
   category: 'autoprefixer',
 })
@@ -38,16 +36,48 @@ const autoprefixerOffProvider = defineMagicComment({
 const autoprefixerIgnoreNextProvider = defineMagicComment({
   name: 'autoprefixer-ignore-next',
   description: `autoprefixer-ignore-next`,
-  patterns: [
-    // /* autoprefixer: ignore next */
-    /\/\*\s(autoprefixer:\signore\snext)\s\*\//g,
-  ],
+  patterns: createCommentPatterns('autoprefixer: ignore next', {
+    types: ['block'],
+  }),
+  url: `https://github.com/postcss/autoprefixer#control-comments`,
+  category: 'autoprefixer',
+})
+
+const autoprefixerGridAutoplaceProvider = defineMagicComment({
+  name: 'autoprefixer-grid-autoplace',
+  description: `autoprefixer-grid-autoplace`,
+  patterns: createCommentPatterns('autoprefixer grid: autoplace', {
+    types: ['block'],
+  }),
+  url: `https://github.com/postcss/autoprefixer#control-comments`,
+  category: 'autoprefixer',
+})
+
+const autoprefixerGridNoAutoplaceProvider = defineMagicComment({
+  name: 'autoprefixer-grid-no-autoplace',
+  description: `autoprefixer-grid-no-autoplace`,
+  patterns: createCommentPatterns('autoprefixer grid: no-autoplace', {
+    types: ['block'],
+  }),
+  url: `https://github.com/postcss/autoprefixer#control-comments`,
+  category: 'autoprefixer',
+})
+
+const autoprefixerGridOffProvider = defineMagicComment({
+  name: 'autoprefixer-grid-off',
+  description: `autoprefixer-grid-off`,
+  patterns: createCommentPatterns('autoprefixer grid: off', {
+    types: ['block'],
+  }),
   url: `https://github.com/postcss/autoprefixer#control-comments`,
   category: 'autoprefixer',
 })
 
 // @keep-sorted
 export const autoprefixerProviders = [
+  autoprefixerGridAutoplaceProvider,
+  autoprefixerGridNoAutoplaceProvider,
+  autoprefixerGridOffProvider,
   autoprefixerIgnoreNextProvider,
   autoprefixerOffProvider,
   autoprefixerOnProvider,

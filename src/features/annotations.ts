@@ -2,7 +2,7 @@ import { isString, toArray } from '@ntnyq/utils'
 import {
   computed,
   shallowRef,
-  useEditorDecorations,
+  watch,
   useActiveTextEditor,
   useDocumentText,
   watchEffect,
@@ -18,17 +18,21 @@ import type { DecorationMatch } from '../types'
 import { getMagicCommentMarkdown, isTruthy, logger } from '../utils'
 
 export function useAnnotations() {
-  const BuiltInDecoration = window.createTextEditorDecorationType({
-    rangeBehavior: DecorationRangeBehavior.ClosedClosed,
-    color: config.annotation?.color || DEFAULT_ANNOTATION.color,
-    after: {
-      contentText:
-        config.annotation?.after?.contentText ||
-        DEFAULT_ANNOTATION.after.contentText,
-      margin:
-        config.annotation?.after?.margin || DEFAULT_ANNOTATION.after.margin,
-    },
-  })
+  const createBuiltInDecoration = () =>
+    window.createTextEditorDecorationType({
+      rangeBehavior: DecorationRangeBehavior.ClosedClosed,
+      color: config.annotation?.color || DEFAULT_ANNOTATION.color,
+      after: {
+        contentText:
+          config.annotation?.after?.contentText ||
+          DEFAULT_ANNOTATION.after.contentText,
+        margin:
+          config.annotation?.after?.margin || DEFAULT_ANNOTATION.after.margin,
+      },
+    })
+
+  const builtInDecoration = shallowRef(createBuiltInDecoration())
+
   const editor = useActiveTextEditor()
   const text = useDocumentText(() => editor.value?.document)
   const languageId = computed(() => editor.value?.document.languageId)
@@ -37,7 +41,29 @@ export function useAnnotations() {
 
   const supportedLanguages = shallowRef<string[]>([])
 
-  useEditorDecorations(editor, BuiltInDecoration, decorations)
+  watch(
+    () => config.annotation,
+    () => {
+      const nextDecoration = createBuiltInDecoration()
+      const previousDecoration = builtInDecoration.value
+
+      builtInDecoration.value = nextDecoration
+
+      if (editor.value) {
+        editor.value.setDecorations(nextDecoration, decorations.value)
+      }
+
+      previousDecoration.dispose()
+    },
+  )
+
+  watchEffect(() => {
+    if (!editor.value) {
+      return
+    }
+
+    editor.value.setDecorations(builtInDecoration.value, decorations.value)
+  })
 
   // Calculate decorations
   watchEffect(async () => {
@@ -91,7 +117,7 @@ export function useAnnotations() {
           const startPos = document.positionAt(startIndex)
           const endPos = document.positionAt(startIndex + key.length)
 
-          logger.info(
+          logger.debug(
             `🔍 Founded magic comment '${magicComment.name}' at ${startPos.line}:${startPos.character} matched pattern: '${regexp.source}'`,
           )
 
