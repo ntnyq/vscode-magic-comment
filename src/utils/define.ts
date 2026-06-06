@@ -47,23 +47,23 @@ export function createCommentPatterns(
     switch (type) {
       case 'line':
         // // token
-        patterns.push(new RegExp(`//\\s*(${escaped})`, 'g'))
+        patterns.push(new RegExp(`//\\s*(${escaped})`, 'gu'))
         break
       case 'block':
         // /* token */
         patterns.push(
-          new RegExp(`/\\*\\s*(${escaped})${trailingPattern}\\s*\\*/`, 'g'),
+          new RegExp(`/\\*\\s*(${escaped})${trailingPattern}\\s*\\*/`, 'gu'),
         )
         break
       case 'html':
         // <!-- token -->
         patterns.push(
-          new RegExp(`<!--\\s*(${escaped})${trailingPattern}\\s*-->`, 'g'),
+          new RegExp(`<!--\\s*(${escaped})${trailingPattern}\\s*-->`, 'gu'),
         )
         break
       case 'hash':
         // # token
-        patterns.push(new RegExp(`#\\s*(${escaped})`, 'g'))
+        patterns.push(new RegExp(`#\\s*(${escaped})`, 'gu'))
         break
       default:
         break

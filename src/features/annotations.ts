@@ -92,7 +92,7 @@ export function useAnnotations() {
 
     enabledMagicComments.value.forEach(magicComment => {
       const patterns = toArray(magicComment.patterns).map(pattern =>
-        isString(pattern) ? new RegExp(pattern, 'g') : pattern,
+        isString(pattern) ? new RegExp(pattern, 'gu') : pattern,
       ) as RegExp[]
 
       patterns.forEach(regexp => {
