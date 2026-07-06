@@ -46,13 +46,13 @@
     "typecheck": "tsgo --noEmit"
   },
   "dependencies": {
-    "@ntnyq/utils": "^0.15.0",
+    "@ntnyq/utils": "^0.16.0",
     "reactive-vscode": "^1.0.2"
   },
   "devDependencies": {
     "@types/node": "^25.9.4",
     "@types/vscode": "^1.125.0",
-    "@typescript/native-preview": "^7.0.0-dev.20260622.1",
+    "@typescript/native-preview": "^7.0.0-dev.20260628.1",
     "@vscode/vsce": "^3.9.2",
     "bumpp": "^11.1.0",
     "husky": "^9.1.7",
@@ -202,7 +202,7 @@
   "icon": "./res/logo.png",
   "preview": true,
   "engines": {
-    "vscode": "^1.125.0"
+    "vscode": "^1.126.0"
   },
-  "packageManager": "pnpm@11.8.0"
+  "packageManager": "pnpm@11.9.0"
 }
