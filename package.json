@@ -46,21 +46,21 @@
     "typecheck": "tsgo --noEmit"
   },
   "dependencies": {
-    "@ntnyq/utils": "^0.16.0",
+    "@ntnyq/utils": "^0.18.1",
     "reactive-vscode": "^1.0.2"
   },
   "devDependencies": {
-    "@types/node": "^25.9.4",
+    "@types/node": "^25.9.5",
     "@types/vscode": "^1.125.0",
-    "@typescript/native-preview": "^7.0.0-dev.20260705.1",
+    "@typescript/native-preview": "^7.0.0-dev.20260707.2",
     "@vscode/vsce": "^3.9.2",
     "bumpp": "^11.1.0",
     "husky": "^9.1.7",
     "nano-staged": "^1.0.2",
     "npm-run-all2": "^9.0.2",
-    "oxfmt": "^0.57.0",
-    "oxlint": "^1.72.0",
-    "tsdown": "^0.22.3",
+    "oxfmt": "^0.59.0",
+    "oxlint": "^1.74.0",
+    "tsdown": "^0.22.12",
     "typescript": "^6.0.3",
     "vscode-ext-gen": "^1.6.0"
   },
@@ -202,7 +202,7 @@
   "icon": "./res/logo.png",
   "preview": true,
   "engines": {
-    "vscode": "^1.127.0"
+    "vscode": "^1.129.1"
   },
-  "packageManager": "pnpm@11.10.0"
+  "packageManager": "pnpm@11.15.1"
 }
