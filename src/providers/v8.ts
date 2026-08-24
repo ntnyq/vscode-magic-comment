@@ -15,32 +15,30 @@
 import { createCommentPatterns, defineMagicComment } from '../utils/define'
 
 const v8IgnoreNextProvider = defineMagicComment({
-  name: 'v8-ignore-next',
-  description: `v8-ignore-next`,
-  patterns: createCommentPatterns('v8 ignore next', {
-    types: ['block'],
-    trailing: true,
+    name: 'v8-ignore-next',
+    description: `v8-ignore-next`,
+    patterns: createCommentPatterns('v8 ignore next', {
+      types: ['block'],
+      trailing: true,
+    }),
+    category: 'v8',
   }),
-  category: 'v8',
-})
-
-const v8IgnoreStartProvider = defineMagicComment({
-  name: 'v8-ignore-start',
-  description: `v8-ignore-start`,
-  patterns: createCommentPatterns('v8 ignore start', {
-    types: ['block'],
+  v8IgnoreStartProvider = defineMagicComment({
+    name: 'v8-ignore-start',
+    description: `v8-ignore-start`,
+    patterns: createCommentPatterns('v8 ignore start', {
+      types: ['block'],
+    }),
+    category: 'v8',
   }),
-  category: 'v8',
-})
-
-const v8IgnoreStopProvider = defineMagicComment({
-  name: 'v8-ignore-stop',
-  description: `v8-ignore-stop`,
-  patterns: createCommentPatterns('v8 ignore stop', {
-    types: ['block'],
-  }),
-  category: 'v8',
-})
+  v8IgnoreStopProvider = defineMagicComment({
+    name: 'v8-ignore-stop',
+    description: `v8-ignore-stop`,
+    patterns: createCommentPatterns('v8 ignore stop', {
+      types: ['block'],
+    }),
+    category: 'v8',
+  })
 
 // @keep-sorted
 export const v8Providers = [
