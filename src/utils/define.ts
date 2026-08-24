@@ -32,7 +32,7 @@ export function createCommentPatterns(
   options: CreateCommentPatternsOptions,
 ): RegExp[] {
   const { types, trailing = false } = options,
-   escaped = escapeRegExp(token)
+    escaped = escapeRegExp(token)
 
   let trailingPattern = ''
   if (trailing === 'multiline') {

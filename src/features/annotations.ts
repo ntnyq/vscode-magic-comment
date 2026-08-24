@@ -19,33 +19,29 @@ import { getMagicCommentMarkdown, isTruthy, logger } from '../utils'
 
 export function useAnnotations() {
   const createBuiltInDecoration = () =>
-    window.createTextEditorDecorationType({
-      rangeBehavior: DecorationRangeBehavior.ClosedClosed,
-      color: config.annotation?.color || DEFAULT_ANNOTATION.color,
-      after: {
-        contentText:
-          config.annotation?.after?.contentText ||
-          DEFAULT_ANNOTATION.after.contentText,
-        margin:
-          config.annotation?.after?.margin || DEFAULT_ANNOTATION.after.margin,
-      },
-    }),
-
-   builtInDecoration = shallowRef(createBuiltInDecoration()),
-
-   editor = useActiveTextEditor(),
-   text = useDocumentText(() => editor.value?.document),
-   languageId = computed(() => editor.value?.document.languageId),
-
-   decorations = shallowRef<DecorationMatch[]>([]),
-
-   supportedLanguages = shallowRef<string[]>([])
+      window.createTextEditorDecorationType({
+        rangeBehavior: DecorationRangeBehavior.ClosedClosed,
+        color: config.annotation?.color || DEFAULT_ANNOTATION.color,
+        after: {
+          contentText:
+            config.annotation?.after?.contentText ||
+            DEFAULT_ANNOTATION.after.contentText,
+          margin:
+            config.annotation?.after?.margin || DEFAULT_ANNOTATION.after.margin,
+        },
+      }),
+    builtInDecoration = shallowRef(createBuiltInDecoration()),
+    editor = useActiveTextEditor(),
+    text = useDocumentText(() => editor.value?.document),
+    languageId = computed(() => editor.value?.document.languageId),
+    decorations = shallowRef<DecorationMatch[]>([]),
+    supportedLanguages = shallowRef<string[]>([])
 
   watch(
     () => config.annotation,
     () => {
       const nextDecoration = createBuiltInDecoration(),
-       previousDecoration = builtInDecoration.value
+        previousDecoration = builtInDecoration.value
 
       builtInDecoration.value = nextDecoration
 
@@ -82,7 +78,7 @@ export function useAnnotations() {
     }
 
     const { document } = editor.value,
-     keys: [Range, string][] = []
+      keys: [Range, string][] = []
 
     if (!supportedLanguages.value.includes(languageId.value)) {
       decorations.value = []
@@ -113,9 +109,8 @@ export function useAnnotations() {
           }
 
           const startIndex = match.index + match[0].indexOf(key),
-
-           startPos = document.positionAt(startIndex),
-           endPos = document.positionAt(startIndex + key.length)
+            startPos = document.positionAt(startIndex),
+            endPos = document.positionAt(startIndex + key.length)
 
           logger.debug(
             `🔍 Founded magic comment '${magicComment.name}' at ${startPos.line}:${startPos.character} matched pattern: '${regexp.source}'`,

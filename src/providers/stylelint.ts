@@ -16,48 +16,45 @@
 import { createCommentPatterns, defineMagicComment } from '../utils/define'
 
 const stylelintEnableProvider = defineMagicComment({
-  name: 'stylelint-enable',
-  description: `stylelint-enable`,
-  url: 'https://stylelint.io/user-guide/ignore-code',
-  patterns: createCommentPatterns('stylelint-enable', {
-    types: ['block'],
-    trailing: true,
+    name: 'stylelint-enable',
+    description: `stylelint-enable`,
+    url: 'https://stylelint.io/user-guide/ignore-code',
+    patterns: createCommentPatterns('stylelint-enable', {
+      types: ['block'],
+      trailing: true,
+    }),
+    category: 'stylelint',
   }),
-  category: 'stylelint',
-}),
-
- stylelintDisableProvider = defineMagicComment({
-  name: 'stylelint-disable',
-  description: `stylelint-disable`,
-  url: 'https://stylelint.io/user-guide/ignore-code',
-  patterns: createCommentPatterns('stylelint-disable', {
-    types: ['block'],
-    trailing: true,
+  stylelintDisableProvider = defineMagicComment({
+    name: 'stylelint-disable',
+    description: `stylelint-disable`,
+    url: 'https://stylelint.io/user-guide/ignore-code',
+    patterns: createCommentPatterns('stylelint-disable', {
+      types: ['block'],
+      trailing: true,
+    }),
+    category: 'stylelint',
   }),
-  category: 'stylelint',
-}),
-
- stylelintDisableLineProvider = defineMagicComment({
-  name: 'stylelint-disable-line',
-  description: `stylelint-disable-line`,
-  url: 'https://stylelint.io/user-guide/ignore-code',
-  patterns: createCommentPatterns('stylelint-disable-line', {
-    types: ['block'],
-    trailing: true,
+  stylelintDisableLineProvider = defineMagicComment({
+    name: 'stylelint-disable-line',
+    description: `stylelint-disable-line`,
+    url: 'https://stylelint.io/user-guide/ignore-code',
+    patterns: createCommentPatterns('stylelint-disable-line', {
+      types: ['block'],
+      trailing: true,
+    }),
+    category: 'stylelint',
   }),
-  category: 'stylelint',
-}),
-
- stylelintDisableNextLineProvider = defineMagicComment({
-  name: 'stylelint-disable-next-line',
-  description: `stylelint-disable-next-line`,
-  url: 'https://stylelint.io/user-guide/ignore-code',
-  patterns: createCommentPatterns('stylelint-disable-next-line', {
-    types: ['block'],
-    trailing: true,
-  }),
-  category: 'stylelint',
-})
+  stylelintDisableNextLineProvider = defineMagicComment({
+    name: 'stylelint-disable-next-line',
+    description: `stylelint-disable-next-line`,
+    url: 'https://stylelint.io/user-guide/ignore-code',
+    patterns: createCommentPatterns('stylelint-disable-next-line', {
+      types: ['block'],
+      trailing: true,
+    }),
+    category: 'stylelint',
+  })
 
 // @keep-sorted
 export const stylelintProviders = [
