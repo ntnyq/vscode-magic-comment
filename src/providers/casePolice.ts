@@ -21,9 +21,9 @@ const casePoliceIgnoreProvider = defineMagicComment({
   }),
   url: 'https://github.com/antfu/case-police#ignores',
   category: 'case-police',
-})
+}),
 
-const casePoliceDisableProvider = defineMagicComment({
+ casePoliceDisableProvider = defineMagicComment({
   name: 'case-police-disable',
   description: `case-police-disable`,
   patterns: createCommentPatterns('@case-police-disable', {

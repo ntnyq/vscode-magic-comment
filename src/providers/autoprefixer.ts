@@ -23,17 +23,17 @@ const autoprefixerOnProvider = defineMagicComment({
   patterns: createCommentPatterns('autoprefixer: on', { types: ['block'] }),
   url: `https://github.com/postcss/autoprefixer#control-comments`,
   category: 'autoprefixer',
-})
+}),
 
-const autoprefixerOffProvider = defineMagicComment({
+ autoprefixerOffProvider = defineMagicComment({
   name: 'autoprefixer-off',
   description: `autoprefixer-off`,
   patterns: createCommentPatterns('autoprefixer: off', { types: ['block'] }),
   url: `https://github.com/postcss/autoprefixer#control-comments`,
   category: 'autoprefixer',
-})
+}),
 
-const autoprefixerIgnoreNextProvider = defineMagicComment({
+ autoprefixerIgnoreNextProvider = defineMagicComment({
   name: 'autoprefixer-ignore-next',
   description: `autoprefixer-ignore-next`,
   patterns: createCommentPatterns('autoprefixer: ignore next', {
@@ -41,9 +41,9 @@ const autoprefixerIgnoreNextProvider = defineMagicComment({
   }),
   url: `https://github.com/postcss/autoprefixer#control-comments`,
   category: 'autoprefixer',
-})
+}),
 
-const autoprefixerGridAutoplaceProvider = defineMagicComment({
+ autoprefixerGridAutoplaceProvider = defineMagicComment({
   name: 'autoprefixer-grid-autoplace',
   description: `autoprefixer-grid-autoplace`,
   patterns: createCommentPatterns('autoprefixer grid: autoplace', {
@@ -51,9 +51,9 @@ const autoprefixerGridAutoplaceProvider = defineMagicComment({
   }),
   url: `https://github.com/postcss/autoprefixer#control-comments`,
   category: 'autoprefixer',
-})
+}),
 
-const autoprefixerGridNoAutoplaceProvider = defineMagicComment({
+ autoprefixerGridNoAutoplaceProvider = defineMagicComment({
   name: 'autoprefixer-grid-no-autoplace',
   description: `autoprefixer-grid-no-autoplace`,
   patterns: createCommentPatterns('autoprefixer grid: no-autoplace', {
@@ -61,9 +61,9 @@ const autoprefixerGridNoAutoplaceProvider = defineMagicComment({
   }),
   url: `https://github.com/postcss/autoprefixer#control-comments`,
   category: 'autoprefixer',
-})
+}),
 
-const autoprefixerGridOffProvider = defineMagicComment({
+ autoprefixerGridOffProvider = defineMagicComment({
   name: 'autoprefixer-grid-off',
   description: `autoprefixer-grid-off`,
   patterns: createCommentPatterns('autoprefixer grid: off', {

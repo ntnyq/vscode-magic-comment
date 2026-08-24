@@ -21,25 +21,25 @@ const pureNotationProvider = defineMagicComment({
   patterns: createCommentPatterns('#__PURE__', { types: ['block'] }),
   url: 'https://github.com/javascript-compiler-hints/compiler-notations-spec',
   category: 'compiler-hint',
-})
+}),
 
-const atPureNotationProvider = defineMagicComment({
+ atPureNotationProvider = defineMagicComment({
   name: 'at-pure-notation',
   description: `at-pure-notation`,
   patterns: createCommentPatterns('@__PURE__', { types: ['block'] }),
   url: 'https://github.com/javascript-compiler-hints/compiler-notations-spec',
   category: 'compiler-hint',
-})
+}),
 
-const noSideEffectsNotationProvider = defineMagicComment({
+ noSideEffectsNotationProvider = defineMagicComment({
   name: 'no-side-effects-notation',
   description: `no-side-effects-notation`,
   patterns: createCommentPatterns('#__NO_SIDE_EFFECTS__', { types: ['block'] }),
   url: 'https://github.com/javascript-compiler-hints/compiler-notations-spec',
   category: 'compiler-hint',
-})
+}),
 
-const atNoSideEffectsNotationProvider = defineMagicComment({
+ atNoSideEffectsNotationProvider = defineMagicComment({
   name: 'at-no-side-effects-notation',
   description: `at-no-side-effects-notation`,
   patterns: createCommentPatterns('@__NO_SIDE_EFFECTS__', { types: ['block'] }),

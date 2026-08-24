@@ -24,9 +24,9 @@ const stylelintEnableProvider = defineMagicComment({
     trailing: true,
   }),
   category: 'stylelint',
-})
+}),
 
-const stylelintDisableProvider = defineMagicComment({
+ stylelintDisableProvider = defineMagicComment({
   name: 'stylelint-disable',
   description: `stylelint-disable`,
   url: 'https://stylelint.io/user-guide/ignore-code',
@@ -35,9 +35,9 @@ const stylelintDisableProvider = defineMagicComment({
     trailing: true,
   }),
   category: 'stylelint',
-})
+}),
 
-const stylelintDisableLineProvider = defineMagicComment({
+ stylelintDisableLineProvider = defineMagicComment({
   name: 'stylelint-disable-line',
   description: `stylelint-disable-line`,
   url: 'https://stylelint.io/user-guide/ignore-code',
@@ -46,9 +46,9 @@ const stylelintDisableLineProvider = defineMagicComment({
     trailing: true,
   }),
   category: 'stylelint',
-})
+}),
 
-const stylelintDisableNextLineProvider = defineMagicComment({
+ stylelintDisableNextLineProvider = defineMagicComment({
   name: 'stylelint-disable-next-line',
   description: `stylelint-disable-next-line`,
   url: 'https://stylelint.io/user-guide/ignore-code',

@@ -26,36 +26,36 @@ const cSpellEnableProvider = defineMagicComment({
     types: ['line', 'block', 'html', 'hash'],
   }),
   category: 'cspell',
-})
+}),
 
-const cSpellDisableProvider = defineMagicComment({
+ cSpellDisableProvider = defineMagicComment({
   name: 'cspell-disable',
   description: `cspell-disable`,
   patterns: createCommentPatterns('cSpell:disable', {
     types: ['line', 'block', 'html', 'hash'],
   }),
   category: 'cspell',
-})
+}),
 
-const cSpellDisableLineProvider = defineMagicComment({
+ cSpellDisableLineProvider = defineMagicComment({
   name: 'cspell-disable-line',
   description: `cspell-disable-line`,
   patterns: createCommentPatterns('cSpell:disable-line', {
     types: ['line'],
   }),
   category: 'cspell',
-})
+}),
 
-const cSpellDisableNextLineProvider = defineMagicComment({
+ cSpellDisableNextLineProvider = defineMagicComment({
   name: 'cspell-disable-next-line',
   description: `cspell-disable-next-line`,
   patterns: createCommentPatterns('cSpell:disable-next-line', {
     types: ['line'],
   }),
   category: 'cspell',
-})
+}),
 
-const spellCheckerEnableProvider = defineMagicComment({
+ spellCheckerEnableProvider = defineMagicComment({
   name: 'cspell-checker-enable',
   description: `cspell-checker-enable`,
   patterns: [
@@ -67,9 +67,9 @@ const spellCheckerEnableProvider = defineMagicComment({
     }),
   ],
   category: 'cspell',
-})
+}),
 
-const spellCheckerDisableProvider = defineMagicComment({
+ spellCheckerDisableProvider = defineMagicComment({
   name: 'cspell-checker-disable',
   description: `cspell-checker-disable`,
   patterns: [

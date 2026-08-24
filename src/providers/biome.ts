@@ -22,9 +22,9 @@ const biomeIgnoreProvider = defineMagicComment({
     trailing: true,
   }),
   category: 'biome',
-})
+}),
 
-const biomeIgnoreAllProvider = defineMagicComment({
+ biomeIgnoreAllProvider = defineMagicComment({
   name: 'biome-ignore-all',
   description: `biome-ignore-all`,
   url: 'https://biomejs.dev/linter/#ignore-code',

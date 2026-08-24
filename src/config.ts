@@ -28,8 +28,8 @@ export const customMagicComments = shallowRef<MagicComment[]>([])
  */
 export function useCustomMagicComments() {
   watchEffect(() => {
-    const seen = new Set<string>()
-    const result: MagicComment[] = []
+    const seen = new Set<string>(),
+     result: MagicComment[] = []
 
     config.customMagicComments.forEach(item => {
       if (builtInMagicCommentsNames.has(item.name) || seen.has(item.name)) {
@@ -69,9 +69,9 @@ export const enabledMagicComments = computed<MagicComment[]>(() => {
 })
 
 async function validateLanguageIds(targets: string[] = []) {
-  const allLanguageIds = await languages.getLanguages()
-  const invalidLanguages: string[] = []
-  const validateLanguages = targets.filter(language => {
+  const allLanguageIds = await languages.getLanguages(),
+   invalidLanguages: string[] = [],
+   validateLanguages = targets.filter(language => {
     if (!allLanguageIds.includes(language)) {
       invalidLanguages.push(language)
       return false

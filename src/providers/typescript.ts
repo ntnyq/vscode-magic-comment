@@ -21,23 +21,23 @@ const tsCheckProvider = defineMagicComment({
   url: 'https://www.typescriptlang.org/docs/handbook/intro-to-js-ts.html#ts-check',
   patterns: createCommentPatterns('@ts-check', { types: ['line'] }),
   category: 'typescript',
-})
+}),
 
-const tsNocheckProvider = defineMagicComment({
+ tsNocheckProvider = defineMagicComment({
   name: 'ts-nocheck',
   description: `ts-nocheck`,
   patterns: createCommentPatterns('@ts-nocheck', { types: ['line'] }),
   category: 'typescript',
-})
+}),
 
-const tsIgnoreProvider = defineMagicComment({
+ tsIgnoreProvider = defineMagicComment({
   name: 'ts-ignore',
   description: `ts-ignore`,
   patterns: createCommentPatterns('@ts-ignore', { types: ['line'] }),
   category: 'typescript',
-})
+}),
 
-const tsExpectErrorProvider = defineMagicComment({
+ tsExpectErrorProvider = defineMagicComment({
   name: 'ts-expect-error',
   description: `ts-expect-error`,
   patterns: createCommentPatterns('@ts-expect-error', { types: ['line'] }),

@@ -20,16 +20,16 @@ const vueSkipProvider = defineMagicComment({
   description: `vue-skip`,
   patterns: createCommentPatterns('@vue-skip', { types: ['html'] }),
   category: 'vue',
-})
+}),
 
-const vueIgnoreProvider = defineMagicComment({
+ vueIgnoreProvider = defineMagicComment({
   name: 'vue-ignore',
   description: `vue-ignore`,
   patterns: createCommentPatterns('@vue-ignore', { types: ['html'] }),
   category: 'vue',
-})
+}),
 
-const vueGenericProvider = defineMagicComment({
+ vueGenericProvider = defineMagicComment({
   name: 'vue-generic',
   description: `vue-generic`,
   patterns: createCommentPatterns('@vue-generic', {
@@ -37,9 +37,9 @@ const vueGenericProvider = defineMagicComment({
     trailing: true,
   }),
   category: 'vue',
-})
+}),
 
-const vueExpectErrorProvider = defineMagicComment({
+ vueExpectErrorProvider = defineMagicComment({
   name: 'vue-expect-error',
   description: `vue-expect-error`,
   patterns: createCommentPatterns('@vue-expect-error', { types: ['html'] }),

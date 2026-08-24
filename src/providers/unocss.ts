@@ -23,9 +23,9 @@ const unocssIncludeProvider = defineMagicComment({
     types: ['line', 'block'],
   }),
   category: 'unocss',
-})
+}),
 
-const unocssIgnoreProvider = defineMagicComment({
+ unocssIgnoreProvider = defineMagicComment({
   name: 'unocss-ignore',
   description: `unocss-ignore`,
   url: 'https://unocss.dev/guide/extracting',
@@ -33,9 +33,9 @@ const unocssIgnoreProvider = defineMagicComment({
     types: ['line', 'block'],
   }),
   category: 'unocss',
-})
+}),
 
-const unocssSkipStartProvider = defineMagicComment({
+ unocssSkipStartProvider = defineMagicComment({
   name: 'unocss-skip-start',
   description: `unocss-skip-start`,
   url: 'https://unocss.dev/guide/extracting',
@@ -43,9 +43,9 @@ const unocssSkipStartProvider = defineMagicComment({
     types: ['line', 'block'],
   }),
   category: 'unocss',
-})
+}),
 
-const unocssSkipEndProvider = defineMagicComment({
+ unocssSkipEndProvider = defineMagicComment({
   name: 'unocss-skip-end',
   description: `unocss-skip-end`,
   url: 'https://unocss.dev/guide/extracting',

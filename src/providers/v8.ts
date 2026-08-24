@@ -22,18 +22,18 @@ const v8IgnoreNextProvider = defineMagicComment({
     trailing: true,
   }),
   category: 'v8',
-})
+}),
 
-const v8IgnoreStartProvider = defineMagicComment({
+ v8IgnoreStartProvider = defineMagicComment({
   name: 'v8-ignore-start',
   description: `v8-ignore-start`,
   patterns: createCommentPatterns('v8 ignore start', {
     types: ['block'],
   }),
   category: 'v8',
-})
+}),
 
-const v8IgnoreStopProvider = defineMagicComment({
+ v8IgnoreStopProvider = defineMagicComment({
   name: 'v8-ignore-stop',
   description: `v8-ignore-stop`,
   patterns: createCommentPatterns('v8 ignore stop', {

@@ -23,9 +23,9 @@ const prettierIgnoreProvider = defineMagicComment({
     types: ['hash', 'line', 'block', 'html'],
   }),
   category: 'prettier',
-})
+}),
 
-const prettierIgnoreAttributeProvider = defineMagicComment({
+ prettierIgnoreAttributeProvider = defineMagicComment({
   name: 'prettier-ignore-attribute',
   description: `prettier-ignore-attribute`,
   url: 'https://prettier.io/docs/ignore.html',
@@ -33,9 +33,9 @@ const prettierIgnoreAttributeProvider = defineMagicComment({
     types: ['html'],
   }),
   category: 'prettier',
-})
+}),
 
-const prettierIgnoreStartProvider = defineMagicComment({
+ prettierIgnoreStartProvider = defineMagicComment({
   name: 'prettier-ignore-start',
   description: `prettier-ignore-start`,
   url: 'https://prettier.io/docs/ignore.html',
@@ -43,9 +43,9 @@ const prettierIgnoreStartProvider = defineMagicComment({
     types: ['html'],
   }),
   category: 'prettier',
-})
+}),
 
-const prettierIgnoreEndProvider = defineMagicComment({
+ prettierIgnoreEndProvider = defineMagicComment({
   name: 'prettier-ignore-end',
   description: `prettier-ignore-end`,
   url: 'https://prettier.io/docs/ignore.html',

@@ -22,27 +22,27 @@ const dprintIgnoreProvider = defineMagicComment({
     types: ['line', 'block', 'html'],
   }),
   category: 'dprint',
-})
+}),
 
-const dprintIgnoreFileProvider = defineMagicComment({
+ dprintIgnoreFileProvider = defineMagicComment({
   name: 'dprint-ignore-file',
   description: `dprint-ignore-file`,
   patterns: createCommentPatterns('dprint-ignore-file', {
     types: ['line'],
   }),
   category: 'dprint',
-})
+}),
 
-const dprintIgnoreStartProvider = defineMagicComment({
+ dprintIgnoreStartProvider = defineMagicComment({
   name: 'dprint-ignore-start',
   description: `dprint-ignore-start`,
   patterns: createCommentPatterns('dprint-ignore-start', {
     types: ['html'],
   }),
   category: 'dprint',
-})
+}),
 
-const dprintIgnoreEndProvider = defineMagicComment({
+ dprintIgnoreEndProvider = defineMagicComment({
   name: 'dprint-ignore-end',
   description: `dprint-ignore-end`,
   patterns: createCommentPatterns('dprint-ignore-end', {
