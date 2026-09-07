@@ -204,5 +204,5 @@
   "engines": {
     "vscode": "^1.132.0"
   },
-  "packageManager": "pnpm@11.21.0"
+  "packageManager": "pnpm@12.1.0"
 }
