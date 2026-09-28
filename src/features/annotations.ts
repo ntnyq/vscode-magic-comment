@@ -24,8 +24,8 @@ export function useAnnotations() {
       color: config.annotation?.color || DEFAULT_ANNOTATION.color,
       after: {
         contentText:
-          config.annotation?.after?.contentText ||
-          DEFAULT_ANNOTATION.after.contentText,
+          config.annotation?.after?.contentText
+          || DEFAULT_ANNOTATION.after.contentText,
         margin:
           config.annotation?.after?.margin || DEFAULT_ANNOTATION.after.margin,
       },
@@ -69,13 +69,13 @@ export function useAnnotations() {
   watchEffect(async () => {
     if (
       // no editor instance
-      !editor.value ||
+      !editor.value
       // no language id
-      !languageId.value ||
+      || !languageId.value
       // no text
-      !text.value ||
+      || !text.value
       // exclude language ids
-      EXCLUDE_LANGUAGE_IDS.includes(languageId.value)
+      || EXCLUDE_LANGUAGE_IDS.includes(languageId.value)
     ) {
       decorations.value = []
       return

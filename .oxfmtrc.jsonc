@@ -3,6 +3,7 @@
   "arrowParens": "avoid",
   "bracketSameLine": false,
   "bracketSpacing": true,
+  "experimentalOperatorPosition": "start",
   "embeddedLanguageFormatting": "auto",
   "endOfLine": "lf",
   "sortImports": {
