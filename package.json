@@ -1,7 +1,7 @@
 {
   "name": "vscode-magic-comment",
   "displayName": "VSCode Magic Comment",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "private": true,
   "description": "Add annotations to magic comments",
   "categories": [
