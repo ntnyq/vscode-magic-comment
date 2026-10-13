@@ -43,10 +43,10 @@
     "release:check": "run-s lint typecheck",
     "release:publish": "vsce publish --no-dependencies",
     "release:version": "bumpp --all --execute='pnpm release:build'",
+    "test": "vitest run",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@ntnyq/utils": "^0.23.0",
     "reactive-vscode": "^1.0.2"
   },
   "devDependencies": {
@@ -61,6 +61,7 @@
     "oxlint": "^1.87.0",
     "tsdown": "^0.23.1",
     "typescript": "^7.0.2",
+    "vitest": "^5.0.4",
     "vscode-ext-gen": "^1.6.0"
   },
   "nano-staged": {
@@ -102,7 +103,8 @@
               "type": "string"
             }
           },
-          "type": "object"
+          "type": "object",
+          "scope": "language-overridable"
         },
         "magic-comment.customMagicComments": {
           "default": [],
@@ -117,7 +119,8 @@
                 "type": "string"
               },
               "name": {
-                "type": "string"
+                "type": "string",
+                "minLength": 1
               },
               "patterns": {
                 "oneOf": [
@@ -130,8 +133,93 @@
                     },
                     "minItems": 1,
                     "type": "array"
+                  },
+                  {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "oneOf": [
+                        {
+                          "type": "object",
+                          "additionalProperties": false,
+                          "required": [
+                            "kind",
+                            "tokens",
+                            "syntax"
+                          ],
+                          "properties": {
+                            "kind": {
+                              "type": "string",
+                              "enum": [
+                                "token"
+                              ]
+                            },
+                            "tokens": {
+                              "type": "array",
+                              "minItems": 1,
+                              "items": {
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            },
+                            "syntax": {
+                              "type": "array",
+                              "minItems": 1,
+                              "uniqueItems": true,
+                              "items": {
+                                "type": "string",
+                                "enum": [
+                                  "line",
+                                  "block",
+                                  "html",
+                                  "hash"
+                                ]
+                              }
+                            },
+                            "trailing": {
+                              "type": "string",
+                              "enum": [
+                                "none",
+                                "line",
+                                "multiline"
+                              ],
+                              "default": "none"
+                            }
+                          }
+                        },
+                        {
+                          "type": "object",
+                          "additionalProperties": false,
+                          "required": [
+                            "kind",
+                            "source"
+                          ],
+                          "properties": {
+                            "kind": {
+                              "type": "string",
+                              "enum": [
+                                "regex"
+                              ]
+                            },
+                            "source": {
+                              "type": "string"
+                            },
+                            "flags": {
+                              "type": "string",
+                              "description": "JavaScript regex flags; scanning adds d and g, defaults to u, and removes y."
+                            },
+                            "capture": {
+                              "type": "integer",
+                              "minimum": 0,
+                              "default": 1
+                            }
+                          }
+                        }
+                      ]
+                    }
                   }
-                ]
+                ],
+                "description": "Legacy regex source(s), or pattern declarations. Regex capture defaults to group 1."
               },
               "url": {
                 "type": "string"
@@ -143,7 +231,8 @@
             ],
             "type": "object"
           },
-          "type": "array"
+          "type": "array",
+          "scope": "language-overridable"
         },
         "magic-comment.disabledCategories": {
           "default": [],
@@ -152,7 +241,8 @@
             "type": "string"
           },
           "type": "array",
-          "uniqueItems": true
+          "uniqueItems": true,
+          "scope": "language-overridable"
         },
         "magic-comment.disabledNames": {
           "default": [],
@@ -161,20 +251,23 @@
             "type": "string"
           },
           "type": "array",
-          "uniqueItems": true
+          "uniqueItems": true,
+          "scope": "language-overridable"
         },
         "magic-comment.enable": {
           "default": true,
           "description": "Enable extension",
-          "type": "boolean"
+          "type": "boolean",
+          "scope": "language-overridable"
         },
         "magic-comment.ignorePaths": {
           "default": [],
-          "description": "Ignored paths pattern",
+          "description": "Ignored glob patterns, relative to the workspace folder or absolute outside a workspace",
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "type": "array",
+          "scope": "language-overridable"
         },
         "magic-comment.languages": {
           "default": [
@@ -189,7 +282,8 @@
             "type": "string"
           },
           "type": "array",
-          "uniqueItems": true
+          "uniqueItems": true,
+          "scope": "language-overridable"
         }
       },
       "title": "Magic Comment"

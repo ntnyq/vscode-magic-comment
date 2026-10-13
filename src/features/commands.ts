@@ -1,7 +1,7 @@
 import { useCommand } from 'reactive-vscode'
 import { languages } from 'vscode'
 import { commands } from '../meta'
-import { logger } from '../utils'
+import { logger } from '../utils/logger'
 
 export function useCommands() {
   useCommand(commands.getLanguageConfig, async () => {

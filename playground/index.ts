@@ -12,6 +12,20 @@ export const num = 25
 num = false
 //#endregion
 
+//#region matching-regressions
+// These prefixes must not receive a decoration:
+// @ts-ignore-extra
+// biome-ignore-extra
+// /* #__PURE__extra */
+// /* webpackChunkNameExtra: "chunk" */
+
+// Both occurrences should receive their own decoration:
+// /* #__PURE__ */ /* #__PURE__ */
+
+// Unicode before a token must not shift its decoration:
+// 😀 /* @vite-ignore */
+//#endregion
+
 //#region unocss
 // @unocss-include
 

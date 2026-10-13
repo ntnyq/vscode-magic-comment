@@ -10,13 +10,13 @@
  * ```
  */
 
-import { createCommentPatterns, defineMagicComment } from '../utils/define'
+import { defineMagicComment } from '../core'
 
 const viteIgnoreProvider = defineMagicComment({
   name: 'vite-ignore',
   description: `vite-ignore`,
   url: 'https://github.com/evanw/esbuild/releases/tag/v0.16.14',
-  patterns: createCommentPatterns('@vite-ignore', { types: ['block'] }),
+  patterns: [{ kind: 'token', tokens: ['@vite-ignore'], syntax: ['block'] }],
   category: 'vite',
 })
 

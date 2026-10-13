@@ -9,11 +9,7 @@ export default defineConfig({
   deps: {
     alwaysBundle: Object.keys(pkg.dependencies),
     neverBundle: ['vscode'],
-    onlyBundle: [
-      '@reactive-vscode/reactivity',
-      'reactive-vscode',
-      '@ntnyq/utils',
-    ],
+    onlyBundle: ['@reactive-vscode/reactivity', 'reactive-vscode'],
   },
   entry: ['src/index.ts'],
   minify: !isDev(),

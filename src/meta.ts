@@ -129,7 +129,7 @@ export const configs = {
     default: true,
   } as ConfigItem<"magic-comment.enable">,
   /**
-   * Ignored paths pattern
+   * Ignored glob patterns, relative to the workspace folder or absolute outside a workspace
    * @key `magic-comment.ignorePaths`
    * @default `[]`
    * @type `array`

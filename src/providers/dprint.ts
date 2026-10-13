@@ -13,41 +13,52 @@
  * ```
  */
 
-import { createCommentPatterns, defineMagicComment } from '../utils/define'
+import { defineMagicComment } from '../core'
 
 const dprintIgnoreProvider = defineMagicComment({
   name: 'dprint-ignore',
   description: `dprint-ignore`,
-  patterns: createCommentPatterns('dprint-ignore', {
-    types: ['line', 'block', 'html'],
-  }),
+  patterns: [
+    {
+      kind: 'token',
+      tokens: ['dprint-ignore'],
+      syntax: ['line'],
+      trailing: 'line',
+    },
+    { kind: 'token', tokens: ['dprint-ignore'], syntax: ['block', 'html'] },
+  ],
   category: 'dprint',
 })
 
 const dprintIgnoreFileProvider = defineMagicComment({
   name: 'dprint-ignore-file',
   description: `dprint-ignore-file`,
-  patterns: createCommentPatterns('dprint-ignore-file', {
-    types: ['line'],
-  }),
+  patterns: [
+    {
+      kind: 'token',
+      tokens: ['dprint-ignore-file'],
+      syntax: ['line'],
+      trailing: 'line',
+    },
+  ],
   category: 'dprint',
 })
 
 const dprintIgnoreStartProvider = defineMagicComment({
   name: 'dprint-ignore-start',
   description: `dprint-ignore-start`,
-  patterns: createCommentPatterns('dprint-ignore-start', {
-    types: ['html'],
-  }),
+  patterns: [
+    { kind: 'token', tokens: ['dprint-ignore-start'], syntax: ['html'] },
+  ],
   category: 'dprint',
 })
 
 const dprintIgnoreEndProvider = defineMagicComment({
   name: 'dprint-ignore-end',
   description: `dprint-ignore-end`,
-  patterns: createCommentPatterns('dprint-ignore-end', {
-    types: ['html'],
-  }),
+  patterns: [
+    { kind: 'token', tokens: ['dprint-ignore-end'], syntax: ['html'] },
+  ],
   category: 'dprint',
 })
 

@@ -1,0 +1,10 @@
+/* autoprefixer: off */
+/* stylelint-disable color-no-invalid-hex */
+.example {
+  color: red;
+}
+/* stylelint-enable */
+
+/* These token prefixes must not match: */
+/* autoprefixer: off-extra */
+/* stylelint-disable-extra */

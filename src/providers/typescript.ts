@@ -13,34 +13,62 @@
  * ```
  */
 
-import { createCommentPatterns, defineMagicComment } from '../utils/define'
+import { defineMagicComment } from '../core'
 
 const tsCheckProvider = defineMagicComment({
   name: 'ts-check',
   description: `ts-check`,
   url: 'https://www.typescriptlang.org/docs/handbook/intro-to-js-ts.html#ts-check',
-  patterns: createCommentPatterns('@ts-check', { types: ['line'] }),
+  patterns: [
+    {
+      kind: 'token',
+      tokens: ['@ts-check'],
+      syntax: ['line'],
+      trailing: 'line',
+    },
+  ],
   category: 'typescript',
 })
 
 const tsNocheckProvider = defineMagicComment({
   name: 'ts-nocheck',
   description: `ts-nocheck`,
-  patterns: createCommentPatterns('@ts-nocheck', { types: ['line'] }),
+  patterns: [
+    {
+      kind: 'token',
+      tokens: ['@ts-nocheck'],
+      syntax: ['line'],
+      trailing: 'line',
+    },
+  ],
   category: 'typescript',
 })
 
 const tsIgnoreProvider = defineMagicComment({
   name: 'ts-ignore',
   description: `ts-ignore`,
-  patterns: createCommentPatterns('@ts-ignore', { types: ['line'] }),
+  patterns: [
+    {
+      kind: 'token',
+      tokens: ['@ts-ignore'],
+      syntax: ['line'],
+      trailing: 'line',
+    },
+  ],
   category: 'typescript',
 })
 
 const tsExpectErrorProvider = defineMagicComment({
   name: 'ts-expect-error',
   description: `ts-expect-error`,
-  patterns: createCommentPatterns('@ts-expect-error', { types: ['line'] }),
+  patterns: [
+    {
+      kind: 'token',
+      tokens: ['@ts-expect-error'],
+      syntax: ['line'],
+      trailing: 'line',
+    },
+  ],
   category: 'typescript',
 })
 

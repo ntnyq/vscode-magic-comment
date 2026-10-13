@@ -13,36 +13,42 @@
  * ```
  */
 
-import { createCommentPatterns, defineMagicComment } from '../utils/define'
+import { defineMagicComment } from '../core'
 
 const vueSkipProvider = defineMagicComment({
   name: 'vue-skip',
   description: `vue-skip`,
-  patterns: createCommentPatterns('@vue-skip', { types: ['html'] }),
+  patterns: [{ kind: 'token', tokens: ['@vue-skip'], syntax: ['html'] }],
   category: 'vue',
 })
 
 const vueIgnoreProvider = defineMagicComment({
   name: 'vue-ignore',
   description: `vue-ignore`,
-  patterns: createCommentPatterns('@vue-ignore', { types: ['html'] }),
+  patterns: [{ kind: 'token', tokens: ['@vue-ignore'], syntax: ['html'] }],
   category: 'vue',
 })
 
 const vueGenericProvider = defineMagicComment({
   name: 'vue-generic',
   description: `vue-generic`,
-  patterns: createCommentPatterns('@vue-generic', {
-    types: ['html'],
-    trailing: true,
-  }),
+  patterns: [
+    {
+      kind: 'token',
+      tokens: ['@vue-generic'],
+      syntax: ['html'],
+      trailing: 'line',
+    },
+  ],
   category: 'vue',
 })
 
 const vueExpectErrorProvider = defineMagicComment({
   name: 'vue-expect-error',
   description: `vue-expect-error`,
-  patterns: createCommentPatterns('@vue-expect-error', { types: ['html'] }),
+  patterns: [
+    { kind: 'token', tokens: ['@vue-expect-error'], syntax: ['html'] },
+  ],
   category: 'vue',
 })
 

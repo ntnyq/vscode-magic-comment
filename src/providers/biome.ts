@@ -11,16 +11,20 @@
  * ```
  */
 
-import { createCommentPatterns, defineMagicComment } from '../utils/define'
+import { defineMagicComment } from '../core'
 
 const biomeIgnoreProvider = defineMagicComment({
   name: 'biome-ignore',
   description: `biome-ignore`,
   url: 'https://biomejs.dev/linter/#ignore-code',
-  patterns: createCommentPatterns('biome-ignore', {
-    types: ['line', 'block'],
-    trailing: true,
-  }),
+  patterns: [
+    {
+      kind: 'token',
+      tokens: ['biome-ignore'],
+      syntax: ['line', 'block'],
+      trailing: 'line',
+    },
+  ],
   category: 'biome',
 })
 
@@ -28,9 +32,15 @@ const biomeIgnoreAllProvider = defineMagicComment({
   name: 'biome-ignore-all',
   description: `biome-ignore-all`,
   url: 'https://biomejs.dev/linter/#ignore-code',
-  patterns: createCommentPatterns('biome-ignore-all', {
-    types: ['line', 'block'],
-  }),
+  patterns: [
+    {
+      kind: 'token',
+      tokens: ['biome-ignore-all'],
+      syntax: ['line'],
+      trailing: 'line',
+    },
+    { kind: 'token', tokens: ['biome-ignore-all'], syntax: ['block'] },
+  ],
   category: 'biome',
 })
 

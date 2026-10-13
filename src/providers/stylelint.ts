@@ -13,16 +13,20 @@
  * ```
  */
 
-import { createCommentPatterns, defineMagicComment } from '../utils/define'
+import { defineMagicComment } from '../core'
 
 const stylelintEnableProvider = defineMagicComment({
   name: 'stylelint-enable',
   description: `stylelint-enable`,
   url: 'https://stylelint.io/user-guide/ignore-code',
-  patterns: createCommentPatterns('stylelint-enable', {
-    types: ['block'],
-    trailing: true,
-  }),
+  patterns: [
+    {
+      kind: 'token',
+      tokens: ['stylelint-enable'],
+      syntax: ['block'],
+      trailing: 'line',
+    },
+  ],
   category: 'stylelint',
 })
 
@@ -30,10 +34,14 @@ const stylelintDisableProvider = defineMagicComment({
   name: 'stylelint-disable',
   description: `stylelint-disable`,
   url: 'https://stylelint.io/user-guide/ignore-code',
-  patterns: createCommentPatterns('stylelint-disable', {
-    types: ['block'],
-    trailing: true,
-  }),
+  patterns: [
+    {
+      kind: 'token',
+      tokens: ['stylelint-disable'],
+      syntax: ['block'],
+      trailing: 'line',
+    },
+  ],
   category: 'stylelint',
 })
 
@@ -41,10 +49,14 @@ const stylelintDisableLineProvider = defineMagicComment({
   name: 'stylelint-disable-line',
   description: `stylelint-disable-line`,
   url: 'https://stylelint.io/user-guide/ignore-code',
-  patterns: createCommentPatterns('stylelint-disable-line', {
-    types: ['block'],
-    trailing: true,
-  }),
+  patterns: [
+    {
+      kind: 'token',
+      tokens: ['stylelint-disable-line'],
+      syntax: ['block'],
+      trailing: 'line',
+    },
+  ],
   category: 'stylelint',
 })
 
@@ -52,10 +64,14 @@ const stylelintDisableNextLineProvider = defineMagicComment({
   name: 'stylelint-disable-next-line',
   description: `stylelint-disable-next-line`,
   url: 'https://stylelint.io/user-guide/ignore-code',
-  patterns: createCommentPatterns('stylelint-disable-next-line', {
-    types: ['block'],
-    trailing: true,
-  }),
+  patterns: [
+    {
+      kind: 'token',
+      tokens: ['stylelint-disable-next-line'],
+      syntax: ['block'],
+      trailing: 'line',
+    },
+  ],
   category: 'stylelint',
 })
 

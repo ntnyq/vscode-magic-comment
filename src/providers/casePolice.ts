@@ -11,14 +11,20 @@
  * ```
  */
 
-import { createCommentPatterns, defineMagicComment } from '../utils/define'
+import { defineMagicComment } from '../core'
 
 const casePoliceIgnoreProvider = defineMagicComment({
   name: 'case-police-ignore',
   description: `case-police-ignore`,
-  patterns: createCommentPatterns('@case-police-ignore', {
-    types: ['line', 'block'],
-  }),
+  patterns: [
+    {
+      kind: 'token',
+      tokens: ['@case-police-ignore'],
+      syntax: ['line'],
+      trailing: 'line',
+    },
+    { kind: 'token', tokens: ['@case-police-ignore'], syntax: ['block'] },
+  ],
   url: 'https://github.com/antfu/case-police#ignores',
   category: 'case-police',
 })
@@ -26,9 +32,15 @@ const casePoliceIgnoreProvider = defineMagicComment({
 const casePoliceDisableProvider = defineMagicComment({
   name: 'case-police-disable',
   description: `case-police-disable`,
-  patterns: createCommentPatterns('@case-police-disable', {
-    types: ['line', 'block'],
-  }),
+  patterns: [
+    {
+      kind: 'token',
+      tokens: ['@case-police-disable'],
+      syntax: ['line'],
+      trailing: 'line',
+    },
+    { kind: 'token', tokens: ['@case-police-disable'], syntax: ['block'] },
+  ],
   url: 'https://github.com/antfu/case-police#ignores',
   category: 'case-police',
 })

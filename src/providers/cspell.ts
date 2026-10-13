@@ -17,41 +17,63 @@
  * ```
  */
 
-import { createCommentPatterns, defineMagicComment } from '../utils/define'
+import { defineMagicComment } from '../core'
 
 const cSpellEnableProvider = defineMagicComment({
   name: 'cspell-enable',
   description: `cspell-enable`,
-  patterns: createCommentPatterns('cSpell:enable', {
-    types: ['line', 'block', 'html', 'hash'],
-  }),
+  patterns: [
+    {
+      kind: 'token',
+      tokens: ['cSpell:enable'],
+      syntax: ['line', 'hash'],
+      trailing: 'line',
+    },
+    { kind: 'token', tokens: ['cSpell:enable'], syntax: ['block', 'html'] },
+  ],
   category: 'cspell',
 })
 
 const cSpellDisableProvider = defineMagicComment({
   name: 'cspell-disable',
   description: `cspell-disable`,
-  patterns: createCommentPatterns('cSpell:disable', {
-    types: ['line', 'block', 'html', 'hash'],
-  }),
+  patterns: [
+    {
+      kind: 'token',
+      tokens: ['cSpell:disable'],
+      syntax: ['line', 'hash'],
+      trailing: 'line',
+    },
+    { kind: 'token', tokens: ['cSpell:disable'], syntax: ['block', 'html'] },
+  ],
   category: 'cspell',
 })
 
 const cSpellDisableLineProvider = defineMagicComment({
   name: 'cspell-disable-line',
   description: `cspell-disable-line`,
-  patterns: createCommentPatterns('cSpell:disable-line', {
-    types: ['line'],
-  }),
+  patterns: [
+    {
+      kind: 'token',
+      tokens: ['cSpell:disable-line'],
+      syntax: ['line'],
+      trailing: 'line',
+    },
+  ],
   category: 'cspell',
 })
 
 const cSpellDisableNextLineProvider = defineMagicComment({
   name: 'cspell-disable-next-line',
   description: `cspell-disable-next-line`,
-  patterns: createCommentPatterns('cSpell:disable-next-line', {
-    types: ['line'],
-  }),
+  patterns: [
+    {
+      kind: 'token',
+      tokens: ['cSpell:disable-next-line'],
+      syntax: ['line'],
+      trailing: 'line',
+    },
+  ],
   category: 'cspell',
 })
 
@@ -59,12 +81,28 @@ const spellCheckerEnableProvider = defineMagicComment({
   name: 'cspell-checker-enable',
   description: `cspell-checker-enable`,
   patterns: [
-    ...createCommentPatterns('spell-checker:enable', {
-      types: ['line', 'block', 'html', 'hash'],
-    }),
-    ...createCommentPatterns('spellchecker:enable', {
-      types: ['line', 'block', 'html', 'hash'],
-    }),
+    {
+      kind: 'token',
+      tokens: ['spell-checker:enable'],
+      syntax: ['line', 'hash'],
+      trailing: 'line',
+    },
+    {
+      kind: 'token',
+      tokens: ['spell-checker:enable'],
+      syntax: ['block', 'html'],
+    },
+    {
+      kind: 'token',
+      tokens: ['spellchecker:enable'],
+      syntax: ['line', 'hash'],
+      trailing: 'line',
+    },
+    {
+      kind: 'token',
+      tokens: ['spellchecker:enable'],
+      syntax: ['block', 'html'],
+    },
   ],
   category: 'cspell',
 })
@@ -73,12 +111,28 @@ const spellCheckerDisableProvider = defineMagicComment({
   name: 'cspell-checker-disable',
   description: `cspell-checker-disable`,
   patterns: [
-    ...createCommentPatterns('spell-checker:disable', {
-      types: ['line', 'block', 'html', 'hash'],
-    }),
-    ...createCommentPatterns('spellchecker:disable', {
-      types: ['line', 'block', 'html', 'hash'],
-    }),
+    {
+      kind: 'token',
+      tokens: ['spell-checker:disable'],
+      syntax: ['line', 'hash'],
+      trailing: 'line',
+    },
+    {
+      kind: 'token',
+      tokens: ['spell-checker:disable'],
+      syntax: ['block', 'html'],
+    },
+    {
+      kind: 'token',
+      tokens: ['spellchecker:disable'],
+      syntax: ['line', 'hash'],
+      trailing: 'line',
+    },
+    {
+      kind: 'token',
+      tokens: ['spellchecker:disable'],
+      syntax: ['block', 'html'],
+    },
   ],
   category: 'cspell',
 })

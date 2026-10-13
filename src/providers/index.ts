@@ -1,4 +1,4 @@
-import type { MagicComment } from '../types'
+import type { MagicComment } from '../core'
 import { autoprefixerProviders } from './autoprefixer'
 import { biomeProviders } from './biome'
 import { casePoliceProviders } from './casePolice'
