@@ -26,12 +26,10 @@ export function createCommentPatterns(pattern: TokenPattern): RegExp[] {
     const opener = syntax === 'block' ? '/\\*' : '<!--'
     const closer = syntax === 'block' ? '\\*/' : '-->'
     const content = trailing === 'multiline' ? '[\\s\\S]' : '[^\\r\\n]'
-    const suffix = trailing === 'none' ? '' : `(?:(?!${closer})${content})*?`
-    const space =
-      trailing === 'multiline' || trailing === 'none' ? '\\s*' : '[\\t ]*'
-    return new RegExp(
-      `${opener}\\s*${capture}${suffix}${space}${closer}`,
-      'dgu',
-    )
+    // Trailing content already includes whitespace. A second repetition would
+    // backtrack quadratically when a closing delimiter is missing.
+    const suffix =
+      trailing === 'none' ? '\\s*' : `(?:(?!${closer})${content})*?`
+    return new RegExp(`${opener}\\s*${capture}${suffix}${closer}`, 'dgu')
   })
 }

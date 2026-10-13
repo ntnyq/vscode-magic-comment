@@ -105,6 +105,10 @@ export const foobar = {
 
 //#region webpack
 // /* webpackChunkName: dummy */
+/* webpackChunkName: "chunk", webpackMode: "lazy" */
+/* webpackChunkName: "chunk",
+   webpackMode: "lazy",
+   webpackPrefetch: true */
 //#endregion
 
 //#region dprint
@@ -148,6 +152,8 @@ export const foobar = {
 //#endregion
 
 //#region cspell
+// cspell: disable-next-line
+// CSPELL:ENABLE
 // cSpell:disable
 // spellchecker:disable
 // spell-checker:disable

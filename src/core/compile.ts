@@ -7,6 +7,7 @@ export interface CompiledPattern {
   patternIndex: number
   regexp: RegExp
   capture: number
+  scope?: 'block'
 }
 
 /**
@@ -69,6 +70,7 @@ export function compileRules(rules: readonly MagicComment[]): {
             patternIndex,
             regexp,
             capture: pattern.capture ?? 1,
+            scope: pattern.scope,
           })
         }
       } catch (error) {

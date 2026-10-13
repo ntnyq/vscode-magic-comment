@@ -65,7 +65,7 @@
     "vscode-ext-gen": "^1.6.0"
   },
   "nano-staged": {
-    "*.{js,ts,mjs,tsx}": "oxlint --fix",
+    "*.{js,ts,mjs,tsx}": "oxlint --fix --no-error-on-unmatched-pattern",
     "*": "oxfmt --no-error-on-unmatched-pattern"
   },
   "contributes": {
@@ -207,6 +207,13 @@
                             "flags": {
                               "type": "string",
                               "description": "JavaScript regex flags; scanning adds d and g, defaults to u, and removes y."
+                            },
+                            "scope": {
+                              "type": "string",
+                              "enum": [
+                                "block"
+                              ],
+                              "description": "Restrict matching to closed block comment bodies, excluding delimiters."
                             },
                             "capture": {
                               "type": "integer",

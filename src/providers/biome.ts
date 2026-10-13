@@ -36,10 +36,9 @@ const biomeIgnoreAllProvider = defineMagicComment({
     {
       kind: 'token',
       tokens: ['biome-ignore-all'],
-      syntax: ['line'],
+      syntax: ['line', 'block'],
       trailing: 'line',
     },
-    { kind: 'token', tokens: ['biome-ignore-all'], syntax: ['block'] },
   ],
   category: 'biome',
 })

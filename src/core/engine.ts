@@ -6,6 +6,45 @@ import type {
   RuleIssue,
 } from './types'
 
+interface ScanSection {
+  text: string
+  offset: number
+}
+
+/**
+ * Find closed block comments in one forward pass, even for unfinished input.
+ * Like token patterns, this is text-based and does not parse string literals.
+ */
+function getBlockSections(text: string): ScanSection[] {
+  const sections: ScanSection[] = []
+  let offset = 0
+  while (offset < text.length) {
+    const start = text.indexOf('/*', offset)
+    if (start === -1) {
+      break
+    }
+    const end = text.indexOf('*/', start + 2)
+    if (end === -1) {
+      break
+    }
+    sections.push({ text: text.slice(start + 2, end), offset: start + 2 })
+    offset = end + 2
+  }
+  return sections
+}
+
+function* getSectionMatches(
+  sections: readonly ScanSection[],
+  regexp: RegExp,
+): Generator<{ match: RegExpMatchArray; offset: number }> {
+  for (const { text, offset } of sections) {
+    // matchAll owns its cursor and advances even for empty Unicode matches.
+    for (const match of text.matchAll(regexp)) {
+      yield { match, offset }
+    }
+  }
+}
+
 /**
  * Scan synchronously using UTF-16 offsets, without retaining document text.
  */
@@ -21,15 +60,21 @@ export function createMagicCommentEngine(
       const issues: RuleIssue[] = []
       const seenMatches = new Set<string>()
       const seenIssues = new Set<string>()
+      let blockSections: ScanSection[] | null = null
 
       for (const {
         comment,
         regexp,
         capture,
         patternIndex,
+        scope,
       } of compiled.patterns) {
-        // matchAll owns its cursor and advances even for empty Unicode matches.
-        for (const match of text.matchAll(regexp)) {
+        if (scope === 'block') {
+          blockSections ??= getBlockSections(text)
+        }
+        const sections =
+          scope === 'block' ? (blockSections ?? []) : [{ text, offset: 0 }]
+        for (const { match, offset } of getSectionMatches(sections, regexp)) {
           const range = match.indices?.[capture]
           let code: RuleIssue['code'] | null = null
           if (!range) {
@@ -56,7 +101,8 @@ export function createMagicCommentEngine(
           if (!range) {
             continue
           }
-          const [start, end] = range
+          const start = offset + range[0]
+          const end = offset + range[1]
           const key = JSON.stringify([comment.name, start, end])
           if (!seenMatches.has(key)) {
             seenMatches.add(key)

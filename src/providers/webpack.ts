@@ -25,10 +25,9 @@ const webpackChunkNameProvider = defineMagicComment({
   description: `webpack-chunk-name`,
   patterns: [
     {
-      kind: 'token',
-      tokens: ['webpackChunkName'],
-      syntax: ['block'],
-      trailing: 'line',
+      kind: 'regex',
+      scope: 'block',
+      source: String.raw`(?:^|,)\s*(webpackChunkName)(?=$|\s|[:=])`,
     },
   ],
   url: 'https://webpack.js.org/api/module-methods/#magic-comments',
@@ -40,10 +39,9 @@ const webpackModeProvider = defineMagicComment({
   description: `webpack-mode`,
   patterns: [
     {
-      kind: 'token',
-      tokens: ['webpackMode'],
-      syntax: ['block'],
-      trailing: 'line',
+      kind: 'regex',
+      scope: 'block',
+      source: String.raw`(?:^|,)\s*(webpackMode)(?=$|\s|[:=])`,
     },
   ],
   url: 'https://webpack.js.org/api/module-methods/#magic-comments',
@@ -55,10 +53,9 @@ const webpackPrefetchProvider = defineMagicComment({
   description: `webpack-prefetch`,
   patterns: [
     {
-      kind: 'token',
-      tokens: ['webpackPrefetch'],
-      syntax: ['block'],
-      trailing: 'line',
+      kind: 'regex',
+      scope: 'block',
+      source: String.raw`(?:^|,)\s*(webpackPrefetch)(?=$|\s|[:=])`,
     },
   ],
   url: 'https://webpack.js.org/api/module-methods/#magic-comments',
@@ -70,10 +67,9 @@ const webpackPreloadProvider = defineMagicComment({
   description: `webpack-preload`,
   patterns: [
     {
-      kind: 'token',
-      tokens: ['webpackPreload'],
-      syntax: ['block'],
-      trailing: 'line',
+      kind: 'regex',
+      scope: 'block',
+      source: String.raw`(?:^|,)\s*(webpackPreload)(?=$|\s|[:=])`,
     },
   ],
   url: 'https://webpack.js.org/api/module-methods/#magic-comments',
@@ -85,10 +81,9 @@ const webpackIncludeProvider = defineMagicComment({
   description: `webpack-include`,
   patterns: [
     {
-      kind: 'token',
-      tokens: ['webpackInclude'],
-      syntax: ['block'],
-      trailing: 'line',
+      kind: 'regex',
+      scope: 'block',
+      source: String.raw`(?:^|,)\s*(webpackInclude)(?=$|\s|[:=])`,
     },
   ],
   url: 'https://webpack.js.org/api/module-methods/#magic-comments',
@@ -100,10 +95,9 @@ const webpackExcludeProvider = defineMagicComment({
   description: `webpack-exclude`,
   patterns: [
     {
-      kind: 'token',
-      tokens: ['webpackExclude'],
-      syntax: ['block'],
-      trailing: 'line',
+      kind: 'regex',
+      scope: 'block',
+      source: String.raw`(?:^|,)\s*(webpackExclude)(?=$|\s|[:=])`,
     },
   ],
   url: 'https://webpack.js.org/api/module-methods/#magic-comments',
@@ -115,10 +109,9 @@ const webpackExportsProvider = defineMagicComment({
   description: `webpack-exports`,
   patterns: [
     {
-      kind: 'token',
-      tokens: ['webpackExports'],
-      syntax: ['block'],
-      trailing: 'line',
+      kind: 'regex',
+      scope: 'block',
+      source: String.raw`(?:^|,)\s*(webpackExports)(?=$|\s|[:=])`,
     },
   ],
   url: 'https://webpack.js.org/api/module-methods/#magic-comments',
@@ -130,10 +123,9 @@ const webpackIgnoreProvider = defineMagicComment({
   description: `webpack-ignore`,
   patterns: [
     {
-      kind: 'token',
-      tokens: ['webpackIgnore'],
-      syntax: ['block'],
-      trailing: 'line',
+      kind: 'regex',
+      scope: 'block',
+      source: String.raw`(?:^|,)\s*(webpackIgnore)(?=$|\s|[:=])`,
     },
   ],
   url: 'https://webpack.js.org/api/module-methods/#magic-comments',
@@ -145,10 +137,9 @@ const webpackFetchPriorityProvider = defineMagicComment({
   description: `webpack-fetch-priority`,
   patterns: [
     {
-      kind: 'token',
-      tokens: ['webpackFetchPriority'],
-      syntax: ['block'],
-      trailing: 'line',
+      kind: 'regex',
+      scope: 'block',
+      source: String.raw`(?:^|,)\s*(webpackFetchPriority)(?=$|\s|[:=])`,
     },
   ],
   url: 'https://webpack.js.org/api/module-methods/#magic-comments',

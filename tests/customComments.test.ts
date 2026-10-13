@@ -61,6 +61,7 @@ it.each([
   { kind: 'regex', source: '(a)', capture: -1 },
   { kind: 'regex', source: '(a)', capture: 1.5 },
   { kind: 'regex', source: '(a)', flags: 12 },
+  { kind: 'regex', source: '(a)', scope: 'unknown' },
   {
     kind: 'token',
     tokens: ['token'],
@@ -71,4 +72,24 @@ it.each([
   const result = parseCustomComments([{ name: 'invalid', patterns: [pattern] }])
   expect(result.rules).toEqual([])
   expect(result.issues).toHaveLength(1)
+})
+
+it('scopes custom regexes to closed block bodies with document offsets', () => {
+  const parsed = parseCustomComments([
+    {
+      name: 'scoped',
+      patterns: [{ kind: 'regex', source: '(token)', scope: 'block' }],
+    },
+  ])
+  expect(parsed.issues).toEqual([])
+  const text = 'token 😀 /* token token */ token /* token */ /* token'
+  expect(
+    createMagicCommentEngine(parsed.rules)
+      .scan(text)
+      .matches.map(match => [match.start, match.end]),
+  ).toEqual([
+    [12, 17],
+    [18, 23],
+    [36, 41],
+  ])
 })

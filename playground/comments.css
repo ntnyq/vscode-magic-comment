@@ -1,4 +1,5 @@
 /* autoprefixer: off */
+/* biome-ignore-all lint: generated code */
 /* stylelint-disable color-no-invalid-hex */
 .example {
   color: red;

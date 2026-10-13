@@ -12,6 +12,10 @@ export interface RegexPattern {
   source: string
   flags?: string
   /**
+   * Restrict matching to closed block comment bodies, excluding delimiters.
+   */
+  scope?: 'block'
+  /**
    * Capture to decorate, defaulting to group 1. Use 0 for the whole match.
    */
   capture?: number

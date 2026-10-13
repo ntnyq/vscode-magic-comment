@@ -64,6 +64,9 @@ More comming soon.
 
 ### Document settings
 
+<details>
+<summary>Settings behavior and overrides</summary>
+
 Settings support workspace-folder and language overrides. Changes apply to all
 visible editors immediately; text edits are scanned after a 100ms debounce.
 Splits showing the same document share its scan results. Changing only the
@@ -80,7 +83,12 @@ annotation style does not rescan the text.
 - `annotation.after.contentText: ""` hides the suffix. Empty strings are preserved
   for the other style fields as well.
 
+</details>
+
 ### Custom rules
+
+<details>
+<summary>Pattern examples, syntax and matching behavior</summary>
 
 Existing regex strings and arrays of regex strings remain supported. The token to
 decorate must be captured in group 1:
@@ -135,6 +143,11 @@ provided, and removes sticky mode (`y`) for full-text scanning. Invalid flag
 combinations are rejected. Legacy strings and declaration objects cannot be
 mixed in the same rule's `patterns` array.
 
+Regex declarations can set `scope: "block"` to scan each closed `/* */` comment
+body independently, excluding the delimiters. Captured ranges still refer to the
+original document. The webpack providers use this to match multiple directives
+within one comment, including comments spanning multiple lines.
+
 Built-in names cannot be overridden. The first valid custom declaration for a
 name wins. Invalid declarations, regexes, missing captures and empty matches are
 reported in the output channel without stopping other valid patterns. Repeated
@@ -144,7 +157,12 @@ rules share one decoration and combined hover information.
 Matching is text-based: comment-like text inside strings can also match. Regular
 expressions run synchronously; avoid expressions with catastrophic backtracking.
 
+</details>
+
 ## Development
+
+<details>
+<summary>Project structure, checks and manual verification</summary>
 
 The implementation is organized around four modules:
 
@@ -175,6 +193,8 @@ the playground examples in split editors, then change `enable`, `languages`,
 `ignorePaths`, custom rules and annotation styles. Check that clearing a file,
 switching languages and closing editors leave no stale decorations. Add `html`
 and `css` to `languages` to inspect the corresponding examples.
+
+</details>
 
 ## License
 

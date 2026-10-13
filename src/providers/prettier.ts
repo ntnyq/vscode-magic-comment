@@ -36,7 +36,12 @@ const prettierIgnoreAttributeProvider = defineMagicComment({
   description: `prettier-ignore-attribute`,
   url: 'https://prettier.io/docs/ignore.html',
   patterns: [
-    { kind: 'token', tokens: ['prettier-ignore-attribute'], syntax: ['html'] },
+    {
+      kind: 'token',
+      tokens: ['prettier-ignore-attribute'],
+      syntax: ['html'],
+      trailing: 'line',
+    },
   ],
   category: 'prettier',
 })

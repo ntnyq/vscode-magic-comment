@@ -25,6 +25,7 @@ export function isMagicCommentPattern(
     return (
       typeof input.source === 'string'
       && (typeof input.flags === 'undefined' || typeof input.flags === 'string')
+      && (typeof input.scope === 'undefined' || input.scope === 'block')
       && (typeof input.capture === 'undefined'
         || (typeof input.capture === 'number'
           && Number.isSafeInteger(input.capture)
