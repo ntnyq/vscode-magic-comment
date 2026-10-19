@@ -302,7 +302,7 @@
   "icon": "./res/logo.png",
   "preview": true,
   "engines": {
-    "vscode": "^1.140.0"
+    "vscode": "^1.141.0"
   },
-  "packageManager": "pnpm@12.11.2"
+  "packageManager": "pnpm@12.12.1"
 }
